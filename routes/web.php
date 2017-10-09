@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//后台首页
+Route::get('/admin/index/', function () {
+    return view('admin.index');
+});
