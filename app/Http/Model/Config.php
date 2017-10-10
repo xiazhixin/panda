@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Model;
+namespace App\Http\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Config extends Model
 {
     //模型关联的表
-    protected $table = 'panda_config';
+    protected $table = 'shop_config';
 
     //表的主键
     public $primaryKey = 'conf_id';
