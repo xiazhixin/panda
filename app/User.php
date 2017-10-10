@@ -7,23 +7,14 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    //模型关联的表
+    protected $table = 'panda_admin';
+    //表的主键
+    public $primaryKey = 'aid';
+    //允许批量操作的字段
+    //  protected $fillable = ['user_name', 'password'];
+    //不允许批量操作的字段
+    protected $guarded = [];
+    //是否维护时间字段
+    public $timestamps = false;
 }
