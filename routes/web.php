@@ -14,6 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+<<<<<<< HEAD
 
 //后台首页
 Route::get('/admin/index/', function () {
@@ -24,3 +25,5 @@ Route::get('/admin/index/', function () {
 Route::resource('/admin/config','Admin\ConfigController');
 //修改网站配置列表页提交的修改内容
 Route::post('/admin/config/changecontent','Admin\ConfigController@changeContent');
+=======
+>>>>>>> a54e0dea6d275ebf3534e2cd001eafc83f9c3627
