@@ -21,8 +21,11 @@
     <!-- Custom styles for this template -->
     <link href="{{asset('admin/style/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('admin/style/css/style-responsive.css')}}" rel="stylesheet" />
+<<<<<<< HEAD
 {{--    <script src="{{asset('admin/style/js/html5shiv.js')}}"></script>--}}
 {{--    <script src="{{asset('admin/style/js/respond.min.js')}}"></script>--}}
+=======
+>>>>>>> origin/snje
 
       <!-- js placed at the end of the document so the pages load faster -->
       <script src="{{asset('admin/style/js/jquery.js')}}"></script>
@@ -35,8 +38,11 @@
       <script src="{{asset('admin/style/js/owl.carousel.js')}}" ></script>
       <script src="{{asset('admin/style/js/jquery.customSelect.min.js')}}" ></script>
 
+<<<<<<< HEAD
       {{--删除插件--}}
       <script type="text/javascript" src="{{asset('layer/layer.js')}}"></script>
+=======
+>>>>>>> origin/snje
   </head>
 
   <body>
@@ -330,8 +336,13 @@
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
+<<<<<<< HEAD
                           <li><a class="" href="{{url('admin/goods/create')}}">添加商品</a></li>
                           <li><a class="" href="{{url('admin/goods')}}">浏览商品</a></li>
+=======
+                          <li><a class="" href="basic_table.html">Basic Table</a></li>
+                          <li><a class="" href="dynamic_table.html">Dynamic Table</a></li>
+>>>>>>> origin/snje
                       </ul>
                   </li>
                   
@@ -468,11 +479,17 @@
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
+<<<<<<< HEAD
                           <li><a class="" href="blank.html">Blank Page</a></li>
                           <li><a class="" href="profile.html">Profile</a></li>
                           <li><a class="" href="invoice.html">Invoice</a></li>
                           <li><a class="" href="404.html">404 Error</a></li>
                           <li><a class="" href="500.html">500 Error</a></li>
+=======
+                          <li><a class="" href="{{url('admin/config/create')}}">添加网站配置</a></li>
+                          <li><a class="" href="{{url('admin/config')}}">网站配置列表</a></li>
+
+>>>>>>> origin/snje
                       </ul>
                   </li>
               </ul>
@@ -483,7 +500,11 @@
       <!--main content start-->
       <section id="main-content">
         <section class="wrapper">
+<<<<<<< HEAD
                 <!-- 123434123411234213414我说的夫人 -->
+=======
+
+>>>>>>> origin/snje
             @section('content')
         
             @show
@@ -492,6 +513,7 @@
       <!--main content end-->
   </section>
 
+<<<<<<< HEAD
   {{--商品列表页2个--}}
   <script type="text/javascript" src="{{asset('admin/style/assets/data-tables/jquery.dataTables.js')}}"></script>
   <script type="text/javascript" src="{{asset('admin/style/assets/data-tables/DT_bootstrap.js')}}"></script>
@@ -504,6 +526,17 @@
   <!--script for this page-->
   {{--      <script src="{{asset('admin/style/js/form-validation-script.js')}}"></script>--}}
   <script type="text/javascript" src="{{asset('admin/style/js/jquery.validate.min.js')}}"></script>
+=======
+
+
+    <!--common script for all pages-->
+    <script src="{{asset('admin/style/js/common-scripts.js')}}"></script>
+
+    <!--script for this page-->
+    <script src="{{asset('admin/style/js/sparkline-chart.js')}}"></script>
+    <script src="{{asset('admin/style/js/easy-pie-chart.js')}}"></script>
+
+>>>>>>> origin/snje
   <script>
 
       //owl carousel
