@@ -19,3 +19,7 @@ Route::get('/', function () {
 Route::get('/admin/index/', function () {
     return view('admin.index');
 });
+//    商品模块路由
+Route::resource('admin/goods','Admin\GoodsController');
+//    文件上传路由
+Route::post('admin/upload','Admin\GoodsController@upLoad');
