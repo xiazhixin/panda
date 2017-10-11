@@ -1,7 +1,6 @@
 <!-- 后台首页 -->
-<!-- 样式路径"{{asset('admin/style/xxxxxxxxxxxxx')}}" -->
-@section('title', '首页')
 @extends('layouts.admin')
+@section('title', '首页')
 @section('content')
     <div class="col-lg-12">
         <section class="panel">

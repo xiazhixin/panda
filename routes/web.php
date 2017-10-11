@@ -53,10 +53,15 @@ Route::get('/admin/index/', function () {
     Route::post('/home/doregister/', 'Home\LoginController@doregister');
     //});
 
+//订单列表
+Route::resource('/admin/order','Admin\OrderController');
 
 
 //网站配置
 Route::resource('/admin/config','Admin\ConfigController');
 //修改网站配置列表页提交的修改内容
 Route::post('/admin/config/changecontent','Admin\ConfigController@changeContent');
+//将config表中的配置项写入web.php文件中作为网站配置
+Route::get('/admin/putfile','Admin\ConfigController@putFile');
+
 

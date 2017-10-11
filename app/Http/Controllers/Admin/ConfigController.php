@@ -8,6 +8,19 @@ use App\Http\Controllers\Controller;
 
 class ConfigController extends Controller
 {
+
+    public function putFile()
+    {
+        //从config表中取出要写入文件的数据
+        $conf =  Config::lists('conf_content','conf_name')->all();
+        $str = '<?php return '.var_export($conf,true).';';
+
+        //将数组按照指定格式写入web.php文件
+        file_put_contents(base_path().'/config/web.php',$str);
+
+    }
+
+
     public function changeContent(Request $request)
     {
         $input = $request->all();

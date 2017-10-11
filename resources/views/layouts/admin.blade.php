@@ -391,11 +391,8 @@
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="blank.html">Blank Page</a></li>
-                          <li><a class="" href="profile.html">Profile</a></li>
-                          <li><a class="" href="invoice.html">Invoice</a></li>
-                          <li><a class="" href="404.html">404 Error</a></li>
-                          <li><a class="" href="500.html">500 Error</a></li>
+                          <li><a class="" href="{{url('admin/order')}}">浏览订单</a></li>
+
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -475,7 +472,7 @@
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
-
+                          <li><a class="" href="{{url('admin/config')}}">网站基本信息</a></li>
                           <li><a class="" href="{{url('admin/config/create')}}">添加网站配置</a></li>
                           <li><a class="" href="{{url('admin/config')}}">网站配置列表</a></li>
 

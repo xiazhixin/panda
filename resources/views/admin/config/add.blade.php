@@ -68,7 +68,7 @@
                         <div class="form-group">
                             <label for="inputSuccess" class=" col-sm-2"></label>
                             <button class="btn btn-primary col-sm-1"  type="submit">提交</button>
-                            <button class="btn btn-default col-sm-1" type="submit" style="margin-left:20px">返回</button>
+                            <a onclick="history.go(-1)" return false class="btn btn-default col-sm-1" type="submit" style="margin-left:20px">返回</a>
 
 
                         </div>
