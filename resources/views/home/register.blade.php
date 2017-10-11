@@ -49,7 +49,7 @@
                 		  </div>
                  <div class="user-pass">
 								    <label for="passwordRepeat"><i class="am-icon-lock"></i></label>
-								    <input type="password" name="erpassword id="passwordRepeat" placeholder="确认密码">
+								    <input type="password" name="erpassword" id="passwordRepeat" placeholder="确认密码">
                  </div>
 						<div class="user-email">
 								<label for="email"><i class="am-icon-envelope-o"></i></label>
