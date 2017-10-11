@@ -22,6 +22,7 @@
     <link href="{{asset('admin/style/css/style.css')}}" rel="stylesheet">
     <link href="{{asset('admin/style/css/style-responsive.css')}}" rel="stylesheet" />
 
+
       <!-- js placed at the end of the document so the pages load faster -->
       <script src="{{asset('admin/style/js/jquery.js')}}"></script>
       <script src="{{asset('admin/style/js/jquery-1.8.3.min.js')}}"></script>
@@ -32,6 +33,7 @@
       <script src="{{asset('admin/style/assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js')}}"></script>
       <script src="{{asset('admin/style/js/owl.carousel.js')}}" ></script>
       <script src="{{asset('admin/style/js/jquery.customSelect.min.js')}}" ></script>
+
 
   </head>
 
@@ -263,7 +265,9 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <img alt="" src="{{asset('admin/style/img/avatar1_small.jpg')}}">
+
                             <span class="username">宋占弟</span>
+
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
@@ -271,7 +275,9 @@
                             <li><a href="#"><i class=" icon-suitcase"></i>轮廓</a></li>
                             <li><a href="#"><i class="icon-cog"></i> 设置</a></li>
                             <li><a href="#"><i class="icon-bell-alt"></i>通知</a></li>
-                            <li><a href="login.html"><i class="icon-key"></i>退出</a></li>
+
+                            <li><a href="{{url('admin/logout')}}"><i class="icon-key"></i>退出</a></li>
+
                         </ul>
                     </li>
                     <!-- user login dropdown end -->
@@ -286,16 +292,19 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu">
                   <li class="active">
-                      <a class="" href="index.html">
+                      <a class="" href="{{url('home/login')}}">
                           <i class="icon-home"></i>
                           <span>首页</span>
                       </a>
                   </li>
                   <li>
-                      <a class="" href="inbox.html">
+
+                      <a class="" href="#">
                           <i class="icon-male"></i>
                           <span>前台用户</span>
                       </a>
+
+
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
@@ -304,8 +313,10 @@
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="basic_table.html">Basic Table</a></li>
-                          <li><a class="" href="dynamic_table.html">Dynamic Table</a></li>
+
+                          <li><a class="" href="{{url('admin/user/create')}}">添加用户</a></li>
+                          <li><a class="" href="{{url('admin/user')}}">用户列表</a></li>
+
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -464,8 +475,10 @@
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
+
                           <li><a class="" href="{{url('admin/config/create')}}">添加网站配置</a></li>
                           <li><a class="" href="{{url('admin/config')}}">网站配置列表</a></li>
+
 
                       </ul>
                   </li>
@@ -485,7 +498,6 @@
       </section>
       <!--main content end-->
   </section>
-
 
 
     <!--common script for all pages-->

@@ -1,6 +1,8 @@
 <!-- 后台首页 -->
+
 @extends('layouts.admin')
 @section('title', '首页')
+
 @section('content')
   <!--state overview start-->
   <div class="row state-overview">
