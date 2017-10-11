@@ -1,7 +1,7 @@
 <!-- 后台首页 -->
-<!-- 样式路径"{{asset('admin/style/xxxxxxxxxxxxx')}}" -->
-@section('title', '首页')
 @extends('layouts.admin')
+@section('title', '首页')
+
 @section('content')
     <div class="col-lg-12">
         <section class="panel">
@@ -52,7 +52,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">排序</label>
                         <div class="col-sm-1">
-                            <input type="text"  class="form-control" conf_order>
+                            <input type="text"  class="form-control" name="conf_order">
                         </div>
                     </div>
 

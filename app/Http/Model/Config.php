@@ -13,7 +13,7 @@ class Config extends Model
     public $primaryKey = 'conf_id';
 
     //不允许批量操作的字段
-    protected $guarded = [];
+    protected $guarded = ['conf_id','field_value'];
 
     //是否维护时间字段
     public $timestamps = false;

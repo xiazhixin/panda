@@ -12,8 +12,8 @@
             <table class="table table-striped table-advance table-hover">
                 <thead>
                 <tr>
-                    <th><i class="icon-bullhorn"></i> 排序</th>
-                    <th class="hidden-phone"><i class="icon-question-sign"></i> id</th>
+
+                    <th class="hidden-phone"><i class="icon-question-sign"></i> ID</th>
                     <th><i class="icon-bookmark"></i> 标题</th>
                     <th><i class=" icon-edit"></i> 名称</th>
                     <th><i class=" icon-edit"></i> 内容</th>
@@ -25,7 +25,6 @@
                 {{csrf_field()}}
             @foreach($config as $k=>$v)
                 <tr>
-                    <td><a href="#">Vector Ltd</a></td>
                     <td>{{$v->conf_id}}</td>
                     <td class="hidden-phone">
                         <a href="#">{{$v->conf_title}}</a>
