@@ -57,9 +57,7 @@
 
                     <div class="mws-form-row">
                         <input type="text" name="code" class=" required" placeholder="请输入验证码" style="width:140px; padding-top:10px; ">
-                        <a onclick="javascript:re_captcha();">
-                            <img src="{{ URL('/code/captcha/1') }}" id="127ddf0de5a04167a9e427d883690ff6" ">
-                        </a>
+                        <img src="{{url('admin/yzm')}}" onclick="this.src='{{url('admin/yzm')}}?'+Math.random()" alt="">
                     </div>
                     <div id="mws-login-remember" class="mws-form-row mws-inset">
                         <ul class="mws-form-list inline">

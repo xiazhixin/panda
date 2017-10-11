@@ -21,6 +21,12 @@ class LoginController extends Controller
 
     }
 
+    //生成验证码
+    public function yzm()
+    {
+        $code = new Code();
+        $code->make();
+    }
     // 验证码生成
     public function captcha($tmp)
     {
@@ -72,7 +78,7 @@ class LoginController extends Controller
         }
         //3.逻辑验证
         //  验证验证码是否正确
-        if ($input['code'] != session('code')) {
+        if (strtoupper($input['code']) != session('code')) {
             return redirect('admin/login')->with('errors', '验证码错误')->withInput();
         }
         //3.1 查看用户名是否存在
@@ -92,7 +98,7 @@ class LoginController extends Controller
     //4 把用户登录信息存入session里面
         session(['user'=>$user]);
 
-        return redirect('admin/index');
+//        return redirect('admin/index');
 
 
     }
