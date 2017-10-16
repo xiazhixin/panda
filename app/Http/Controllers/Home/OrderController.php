@@ -86,6 +86,19 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $up = Order::where('oid',$id)->update(['ostatus' => 5]);
+        if($up){
+            $data=[
+                'status'=>5,
+                'msg'=>'修改成功'
+            ];
+        }else{
+            $data=[
+                'status'=>0,
+                'msg'=>'修改失败'
+            ];
+        }
+        return $data;
 
     }
 

@@ -15,7 +15,7 @@
 
 		<script src="{{asset('home/AmazeUI-2.4.2/assets/js/jquery.min.js')}}"></script>
 		<script src="{{asset('home/AmazeUI-2.4.2/assets/js/amazeui.js')}}"></script>
-		<script src="/home/layer/layer.js"></script>
+		<script src="{{asset('home/layer/layer.js')}}"></script>
 
 	</head>
 
@@ -199,9 +199,13 @@
 																	@elseif($v->ostatus == '1')
 																		<p class="Mystatus">待收货</p>
 																	@elseif($v->ostatus == '2')
-																		<p class="Mystatus">已完成</p>
+																		<p class="Mystatus">待评论</p>
 																	@elseif($v->ostatus == '3')
 																		<p class="Mystatus">代付款</p>
+																	@elseif($v->ostatus == '4')
+																		<p class="Mystatus">已完成</p>
+																	@elseif($v->ostatus == '5')
+																		<p class="Mystatus">订单已取消</p>
 																	@endif
 
 																</div>
@@ -209,16 +213,19 @@
 															<li class="td td-change">
 																@if($v->ostatus == '0')
 																	<div class="am-btn am-btn-danger anniu">
-																		<a href="">取消订单</a></div>
+																		<a href="javascript:;" onclick="cancels({{$v->oid}})">取消订单</a></div>
 																@elseif($v->ostatus == '1')
 																	<div class="am-btn am-btn-danger anniu">
 																		<a href="javascript:;" onclick="doGoods({{$v->oid}})">确认收货</a></div>
 																@elseif($v->ostatus == '2')
 																	<div class="am-btn am-btn-danger anniu">
-																		<a href="javascript:;" onclick="deletes({{$v->oid}})">删除订单</a></div>
+																		<a href="{{url('home/comment/')/+$v->gid}}">待评论</a></div>
 																@elseif($v->ostatus == '3')
 																	<div class="am-btn am-btn-danger anniu">
 																		<a href="">去付款</a></div>
+																@elseif($v->ostatus == '4')
+																	<div class="am-btn am-btn-danger anniu">
+																		<a href="javascript:;" onclick="deletes({{$v->oid}})">删除订单</a></div>
 																@endif
 
 															</li>
@@ -319,11 +326,14 @@
 																			<p class="Mystatus">待发货</p>
 																		@elseif($v->ostatus == '1')
 																			<p class="Mystatus">待收货</p>
-
 																		@elseif($v->ostatus == '2')
-																			<p class="Mystatus">已完成</p>
+																			<p class="Mystatus">待评论</p>
 																		@elseif($v->ostatus == '3')
 																			<p class="Mystatus">代付款</p>
+																		@elseif($v->ostatus == '4')
+																			<p class="Mystatus">已完成</p>
+																		@elseif($v->ostatus == '5')
+																			<p class="Mystatus">订单已取消</p>
 																		@endif
 																	</div>
 																</li>
@@ -336,7 +346,7 @@
 																			<a href="">确认收货</a></div>
 																	@elseif($v->ostatus == '2')
 																		<div class="am-btn am-btn-danger anniu">
-																			<a href="">删除订单</a></div>
+																			<a href="javascript:;" onclick="comment({{$v->oid}})">待评论</a></div>
 																	@elseif($v->ostatus == '3')
 																		<div class="am-btn am-btn-danger anniu">
 																			<a href="">去付款</a></div>
@@ -384,6 +394,7 @@
 
 									<div class="order-main">
 										<div class="order-list">
+											{{--待发货--}}
 											@foreach($orders as $k=>$v)
 												@if($v->ostatus == '0')
 
@@ -442,27 +453,34 @@
 																				<p class="Mystatus">待发货</p>
 																			@elseif($v->ostatus == '1')
 																				<p class="Mystatus">待收货</p>
-
 																			@elseif($v->ostatus == '2')
-																				<p class="Mystatus">已完成</p>
+																				<p class="Mystatus">待评论</p>
 																			@elseif($v->ostatus == '3')
 																				<p class="Mystatus">代付款</p>
+																			@elseif($v->ostatus == '4')
+																				<p class="Mystatus">已完成</p>
+																			@elseif($v->ostatus == '5')
+																				<p class="Mystatus">订单已取消</p>
 																			@endif
 																		</div>
 																	</li>
 																	<li class="td td-change">
 																		@if($v->ostatus == '0')
 																			<div class="am-btn am-btn-danger anniu">
-																				<a href="">取消订单</a></div>
+																				<a href="javascript:;" onclick="cancels({{$v->oid}})">取消订单</a></div>
 																		@elseif($v->ostatus == '1')
 																			<div class="am-btn am-btn-danger anniu">
 																				<a href="">确认收货</a></div>
 																		@elseif($v->ostatus == '2')
 																			<div class="am-btn am-btn-danger anniu">
-																				<a href="">删除订单</a></div>
+																				<a href="javascript:;" onclick="comment({{$v->oid}})">待评论</a></div>
 																		@elseif($v->ostatus == '3')
 																			<div class="am-btn am-btn-danger anniu">
 																				<a href="">去付款</a></div>
+																		@elseif($v->ostatus == '4')
+																			<div class="am-btn am-btn-danger anniu">
+																				<a href="javascript:;" onclick="({{$v->oid}})">删除订单</a>
+																			</div>
 																		@endif
 
 																	</li>
@@ -503,6 +521,7 @@
 
 									<div class="order-main">
 										<div class="order-list">
+											{{--待收货--}}
 											@foreach($orders as $k=>$v)
 												@if($v->ostatus == '1')
 
@@ -561,30 +580,39 @@
 																				<p class="Mystatus">待发货</p>
 																			@elseif($v->ostatus == '1')
 																				<p class="Mystatus">待收货</p>
-
 																			@elseif($v->ostatus == '2')
-																				<p class="Mystatus">已完成</p>
+																				<p class="Mystatus">待评论</p>
 																			@elseif($v->ostatus == '3')
 																				<p class="Mystatus">代付款</p>
+																			@elseif($v->ostatus == '4')
+																				<p class="Mystatus">已完成</p>
+																			@elseif($v->ostatus == '5')
+																				<p class="Mystatus">订单已取消</p>
 																			@endif
 																		</div>
 																	</li>
 																	<li class="td td-change">
 																		@if($v->ostatus == '0')
 																			<div class="am-btn am-btn-danger anniu">
-																				<a href="">取消订单</a></div>
+																				<a href="">取消订单</a>
+																			</div>
 																		@elseif($v->ostatus == '1')
 																			<div class="am-btn am-btn-danger anniu">
 																				<a href="javascript:;" onclick="doGoods({{$v->oid}})">确认收货</a>
 																			</div>
 																		@elseif($v->ostatus == '2')
 																			<div class="am-btn am-btn-danger anniu">
-																				<a href="javascript:;" onclick="deletes({{$v->oid}})">删除订单</a></div>
+																				<a href="javascript:;" onclick="comment({{$v->oid}})">待评论</a></div>
+																			</div>
 																		@elseif($v->ostatus == '3')
 																			<div class="am-btn am-btn-danger anniu">
-																				<a href="">去付款</a></div>
+																				<a href="">去付款</a>
+																			</div>
+																		@elseif($v->ostatus == '4')
+																			<div class="am-btn am-btn-danger anniu">
+																				<a href="javascript:;" onclick="deletes({{$v->oid}})">删除订单</a>
+																			</div>
 																		@endif
-
 																	</li>
 																</div>
 															</div>
@@ -683,11 +711,14 @@
 																				<p class="Mystatus">待发货</p>
 																			@elseif($v->ostatus == '1')
 																				<p class="Mystatus">待收货</p>
-
 																			@elseif($v->ostatus == '2')
-																				<p class="Mystatus">已完成</p>
+																				<p class="Mystatus">待评论</p>
 																			@elseif($v->ostatus == '3')
 																				<p class="Mystatus">代付款</p>
+																			@elseif($v->ostatus == '4')
+																				<p class="Mystatus">已完成</p>
+																			@elseif($v->ostatus == '5')
+																				<p class="Mystatus">订单已取消</p>
 																			@endif
 																		</div>
 																	</li>
@@ -700,7 +731,7 @@
 																				<a href="">确认收货</a></div>
 																		@elseif($v->ostatus == '2')
 																			<div class="am-btn am-btn-danger anniu">
-																				<a href="">删除订单</a></div>
+																				<a href="{{url('home/comment')/+$v->gid}}">待评论</a></div>
 																		@elseif($v->ostatus == '3')
 																			<div class="am-btn am-btn-danger anniu">
 																				<a href="">去付款</a></div>
@@ -727,7 +758,7 @@
 					</div>
 				</div>
 				<script type="text/javascript">
-
+				//确认收货
                     function doGoods(oid) {
                         layer.confirm('是否确认收货？', {
                             btn: ['确认', '返回'] //按钮
@@ -736,7 +767,7 @@
                             location.href = ("{{ url('/home/order') }}/" + oid);
                         });
                     };
-
+                    //删除订单
                     function deletes(id) {
                         layer.confirm('是否删除订单？', {
                             btn: ['确认', '返回'] //按钮
@@ -751,10 +782,24 @@
                                         layer.msg(data.msg, {icon: 5});
                                     }
 								});
-
                         });
+                    }
 
+                    function cancels(id) {
+                        layer.confirm('是否取消订单？', {
+                            btn: ['确认', '返回'] //按钮
+                        }, function (){
+                            $.post("{{url('home/order/')}}/"+id,{'_method':'put','_token':"{{csrf_token()}}"},function(data){
 
+                                if(data.status == 0){
+                                    location.href = location.href;
+                                    layer.msg(data.msg, {icon: 6});
+                                }else{
+                                    location.href = location.href;
+                                    layer.msg(data.msg, {icon: 5});
+                                }
+                            });
+                        });
                     }
 
 

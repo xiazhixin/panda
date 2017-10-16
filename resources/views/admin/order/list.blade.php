@@ -48,6 +48,8 @@
                             <a href="#">已发货</a>
                         @elseif($v->ostatus == '2')
                             <a href="#">订单完成</a>
+                        @elseif($v->ostatus == '5')
+                            <a href="#" style="color:red">订单已取消</a>
                         @endif
                     </td>
                     <td>

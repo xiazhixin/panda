@@ -27,7 +27,6 @@ class LoginController extends Controller
    
 //        echo Hash::make('123456789');
 
-    }
 
     //生成验证码
     public function yzm()
