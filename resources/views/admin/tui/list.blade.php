@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-
+@section('title','浏览推荐商品')
 @section('content')
 
   <body>
@@ -29,7 +29,7 @@
                                   <tr>
                                       <th>商品ID</th>
                                       <th>商品名称</th>
-                                      <th class="hidden-phone">描述</th>
+                                      <th class="hidden-phone">关键字描述</th>
                                       <th class="hidden-phone">库存</th>
                                       <th class="hidden-phone">上架时间</th>
                                       <th class="hidden-phone">状态</th>
@@ -42,7 +42,7 @@
                                 <tr class="odd gradeX">
                                   <td>{{$v->gid}}</td>
                                   <td class="hidden-phone">{{$v->gname}}</td>
-                                  <td class="hidden-phone">{{$v->gdesc}}</td>
+                                  <td class="hidden-phone">{{$v->keyword}}</td>
                                   <td class="hidden-phone">{{$v->stock}}</td>
                                   <td class="center hidden-phone">{{$v->created_at}}</td>
                                     <td class="hidden-phone">
@@ -55,7 +55,7 @@
                                         @endif
                                     </td>
                                   <td class="hidden-phone">
-                                      <a href="{{url('admin/goods/'.$v->gid.'/edit')}}">修改</a>
+                                      <a href="{{url('admin/tui/'.$v->gid.'/edit')}}">修改</a>
                                       <a href="javascript:;" onclick="delGoods({{$v->gid}})">删除</a>
                                   </td>
                                 </tr>

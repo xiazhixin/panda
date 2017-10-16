@@ -1522,7 +1522,7 @@ if (!Date.parse || doesNotParseY2KNewYear || acceptsInvalidDates || !supportsExt
             var date;
             if (this instanceof NativeDate) {
                 date = length === 1 && String(Y) === Y ? // isString(Y)
-                    // We explicitly pass it through parse:
+                    // We explicitly index it through parse:
                     new NativeDate(DateShim.parse(Y)) :
                     // We have to manually make calls depending on argument
                     // length here

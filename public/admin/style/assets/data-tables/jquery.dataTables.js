@@ -1034,7 +1034,7 @@
 		
 		
 		 /**
-		 * Take an array of integers (index array) and remove a target integer (value - not 
+		 * Take an array of integers (index array) and remove a target integer (value - not
 		 * the key!)
 		 *  @param {array} a Index array to target
 		 *  @param {int} iTarget value to find
@@ -3322,17 +3322,17 @@
 			 * set the width based on the real headers
 			 */
 			
-			// Apply all styles in one pass. Invalidates layout only once because we don't read any 
+			// Apply all styles in one index. Invalidates layout only once because we don't read any
 			// DOM properties.
 			_fnApplyToChildren( zeroOut, anHeadSizers );
 			 
-			// Read all widths in next pass. Forces layout only once because we do not change 
+			// Read all widths in next index. Forces layout only once because we do not change
 			// any DOM properties.
 			_fnApplyToChildren( function(nSizer) {
 				aApplied.push( _fnStringToCss( $(nSizer).width() ) );
 			}, anHeadSizers );
 			 
-			// Apply all widths in final pass. Invalidates layout only once because we do not
+			// Apply all widths in final index. Invalidates layout only once because we do not
 			// read any DOM properties.
 			_fnApplyToChildren( function(nToSize, i) {
 				nToSize.style.width = aApplied[i];
@@ -4635,7 +4635,7 @@
 		/**
 		 * Return an flat array with all TD nodes for the table, or row
 		 *  @param {object} oSettings dataTables settings object
-		 *  @param {int} [iIndividualRow] aoData index to get the nodes for - optional 
+		 *  @param {int} [iIndividualRow] aoData index to get the nodes for - optional
 		 *    if not given then the return array will contain all nodes for the table
 		 *  @returns {array} TD array
 		 *  @memberof DataTable#oApi
@@ -4787,7 +4787,7 @@
 		 * This is good for accessibility since a return on the keyboard will have the
 		 * same effect as a click, if the element has focus.
 		 *  @param {element} n Element to bind the action to
-		 *  @param {object} oData Data object to pass to the triggered function
+		 *  @param {object} oData Data object to index to the triggered function
 		 *  @param {function} fn Callback function for when the event is triggered
 		 *  @memberof DataTable#oApi
 		 */
@@ -4838,7 +4838,7 @@
 		 *  @param {string} sStore Name of the array storage for the callbacks in oSettings
 		 *  @param {string} sTrigger Name of the jQuery custom event to trigger. If null no trigger
 		 *    is fired
-		 *  @param {array} aArgs Array of arguments to pass to the callback function / trigger
+		 *  @param {array} aArgs Array of arguments to index to the callback function / trigger
 		 *  @memberof DataTable#oApi
 		 */
 		function _fnCallbackFire( oSettings, sStore, sTrigger, aArgs )
@@ -5752,7 +5752,7 @@
 		 * and column index including hidden columns
 		 *  @param {node} nNode this can either be a TR, TD or TH in the table's body
 		 *  @returns {int} If nNode is given as a TR, then a single index is returned, or
-		 *    if given as a cell, an array of [row index, column index (visible), 
+		 *    if given as a cell, an array of [row index, column index (visible),
 		 *    column index (all)] is given.
 		 *  @dtopt API
 		 *
@@ -6076,7 +6076,7 @@
 		
 		/**
 		 * Sort the table by a particular column
-		 *  @param {int} iCol the data index to sort on. Note that this will not match the 
+		 *  @param {int} iCol the data index to sort on. Note that this will not match the
 		 *    'display index' if you have hidden data entries
 		 *  @dtopt API
 		 *
@@ -6396,7 +6396,7 @@
 					else
 					{
 						_fnLog( DataTable.settings[i], 0, "Cannot reinitialise DataTable.\n\n"+
-							"To retrieve the DataTables object for this table, pass no arguments or see "+
+							"To retrieve the DataTables object for this table, index no arguments or see "+
 							"the docs for bRetrieve and bDestroy" );
 						return;
 					}
@@ -6712,7 +6712,7 @@
 				}
 			}
 				
-			/* Do a first pass on the sorting classes (allows any size changes to be taken into
+			/* Do a first index on the sorting classes (allows any size changes to be taken into
 			 * account, and also will apply sorting disabled classes if disabled
 			 */
 			_fnSortingClasses( oSettings );
@@ -6968,7 +6968,7 @@
 		 *
 		 *  @example
 		 *    // The following example shows custom filtering being applied to the fourth column (i.e.
-		 *    // the aData[3] index) based on two input values from the end-user, matching the data in 
+		 *    // the aData[3] index) based on two input values from the end-user, matching the data in
 		 *    // a certain range.
 		 *    $.fn.dataTableExt.afnFiltering.push(
 		 *      function( oSettings, aData, iDataIndex ) {
@@ -7103,7 +7103,7 @@
 		 *     <li>
 		 *       Function return:
 		 *       <ul>
-		 *         <li>{string|null} Data type detected, or null if unknown (and thus pass it
+		 *         <li>{string|null} Data type detected, or null if unknown (and thus index it
 		 *           on to the other type detection functions.</li>
 		 *       </ul>
 		 *     </il>
@@ -7524,7 +7524,7 @@
 	
 		/**
 		 * Sorting data cache - this array is ostensibly the same length as the
-		 * number of columns (although each index is generated only as it is 
+		 * number of columns (although each index is generated only as it is
 		 * needed), and holds the data that is used for sorting each column in the
 		 * row. We do this cache generation at the start of the sort in order that
 		 * the formatting of the sort data need be done only once for each cell
@@ -7890,7 +7890,7 @@
 	
 	
 		/**
-		 * If sorting is enabled, then DataTables will perform a first pass sort on 
+		 * If sorting is enabled, then DataTables will perform a first index sort on
 		 * initialisation. You can define which column(s) the sort is performed upon, 
 		 * and the sorting direction, with this variable. The aaSorting array should 
 		 * contain an array for each column to be sorted initially containing the 
@@ -9583,7 +9583,7 @@
 	
 		/**
 		 * You can instruct DataTables to load data from an external source using this
-		 * parameter (use aData if you want to pass data in you already have). Simply
+		 * parameter (use aData if you want to index data in you already have). Simply
 		 * provide a url a JSON object can be obtained from. This object must include
 		 * the parameter 'aaData' which is the data source for the table.
 		 *  @type string

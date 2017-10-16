@@ -25,33 +25,37 @@
 <body>
 
     <div id="mws-login-wrapper">
-        @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <ul>
-                    @if(is_object($errors))
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    @else
-                        <li>{{ $errors }}</li>
-                    @endif
-                </ul>
-            </div>
-        @endif
+
         <div id="mws-login">
-            <h1>Panda Login</h1>
+            <h1>
+                <marquee behavior="" direction="">Panda Login</marquee></h1>
+            <h4 style="color:red;">
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @if(is_object($errors))
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            @else
+                                <li>{{ $errors }}</li>
+                            @endif
+                        </ul>
+                    </div>
+                @endif
+            </h4>
             <div class="mws-login-lock"><i class="icon-lock"></i></div>
             <div id="mws-login-form">
                 <form class="mws-form" action="{{url('admin/dologin')}}" method="post">
                     {{csrf_field()}}
                     <div class="mws-form-row">
                         <div class="mws-form-item">
-                            <input type="text" name="aname" class="mws-login-username required" placeholder="请输入账号">
+                            <input type="text" name="aname" class="mws-login-username required" placeholder="请输入账号"value="{{old('aname')}}">
                         </div>
                     </div>
                     <div class="mws-form-row">
                         <div class="mws-form-item">
-                            <input type="password" name="apassword" class="mws-login-password required" placeholder="请输入密码">
+                            <input type="password" name="apassword" class="mws-login-password required" placeholder="请输入密码" value="{{old('apassword')}}">
                         </div>
                     </div>
 
@@ -64,7 +68,7 @@
                     <div id="mws-login-remember" class="mws-form-row mws-inset">
                         <ul class="mws-form-list inline">
                             <li>
-                                <input id="remember" type="checkbox"> 
+                                <input id="remember" type="checkbox" checked="checked">
                                 <label for="remember">记住账号</label>
                             </li>
                         </ul>

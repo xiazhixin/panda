@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-
+@section('title','修改商品信息')
 @section('content')
     <body>
         <!-- page start-->
@@ -9,7 +9,7 @@
 
                     <div class="panel-body">
                         <div class=" form">
-                            <form id="goods_form" class="cmxform form-horizontal tasi-form" id="commentForm" method="post" action="{{url('admin/tui/'.$goods->gid)}}" enctype="multipart/form-data">
+                            <form id="goods_form" class="cmxform form-horizontal tasi-form" id="commentForm" method="post" action="{{url('admin/goods/'.$goods->gid)}}" enctype="multipart/form-data">
                                 {{csrf_field()}}
                                 <input type="hidden" name="_method" value="put">
                                 
