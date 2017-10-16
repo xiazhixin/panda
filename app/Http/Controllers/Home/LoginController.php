@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Http\Controllers\SMS\Ucpaas;
 use App\Http\Model\HomeUser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+
 
 class LoginController extends Controller
 {
@@ -27,7 +29,30 @@ class LoginController extends Controller
     {
         return view('home/register1');
     }
+    //发送手机验证码
+    public function sendcode1(Request $request)
+    {
+       $input=$request->except('_token');
+//    dd($input);
+        $options['accountsid']='dddfb68ab59c2637e0f1863f53903590';
+        $options['token']='db0cec8867e79a22488b294a7f442273';
 
+    //初始化 $options必填
+        $ucpass = new Ucpaas($options);
+//    dd($ucpass);
+    //开发者账号信息查询默认为json或xml
+//        echo $ucpass->getDevinfo('xml');
+//       $input=$ucpass->getDevinfo('xml');
+//        dd($input);
+        //短信验证码（模板短信）,默认以65个汉字（同65个英文）为一条（可容纳字数受您应用名称占用字符影响），超过长度短信平台将会自动分割为多条发送。分割后的多条短信将按照具体占用条数计费。
+    $appId = "36386decf2604aa89db2dc3507354118";
+    $to = $input['phone'];
+    $templateId = "178482";
+    $param="test,1256,3";
+
+    return $ucpass->templateSMS($appId,$to,$templateId,$param);
+
+    }
     //注册提交来的信息
     public function doregister(Request $request)
     {
@@ -54,7 +79,6 @@ class LoginController extends Controller
         }else{
             return 0;
         }
-
 
 
     }

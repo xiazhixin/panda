@@ -124,9 +124,10 @@
                         <span class="intelligent-label f-fl"><b class="ftx04">*</b>验证码：</span>
                         <div class="f-fl item-ifo">
                             <input type="text" maxlength="6" id="verifyNo" class="txt03 f-r3 f-fl required" tabindex="4" style="width:167px" data-valid="isNonEmpty||isInt" data-error="验证码不能为空||请输入6位数字验证码" />
-                           	<span class="btn btn-gray f-r3 f-ml5 f-size13" id="time_box" disabled style="width:97px;display:none;">发送验证码</span>
-                            <span class="btn btn-gray f-r3 f-ml5 f-size13" id="verifyYz" style="width:97px;">发送验证码</span>
-                            <span class="ie8 icon-close close hide" style="right:130px"></span>
+                           	<span class="btn btn-gray f-r3 f-ml5 f-size13" id="time_box" onclick="dome()" disabled style="width:97px;display:none;" >发送验证码</span>
+                            <span class="btn btn-gray f-r3 f-ml5 f-size13" id="verifyYz" style="width:97px;" ><a
+                                        href="javascript:;" onclick="dome()">发送验证码</a></span>
+                            <span class="ie8 icon-close close hide" style="right:130px" onclick="dome()"></span>
                             <label class="icon-sucessfill blank hide"></label>
                             <label class="focus"><span>请查收手机短信，并填写短信中的验证码（此验证码3分钟内有效）</span></label>
                             <label class="focus valid"></label>
@@ -181,6 +182,13 @@
     <center><a class="btn btn-blue btn-lg f-size12 b-b0 b-l0 b-t0 b-r0 f-pl50 f-pr50 f-r3" href="javascript:closeClause();">已阅读并同意此条款</a></center>
 </div>
 <script>
+        //手机短信验证码 发送验证
+        function dome(){
+            var phone = $('input[name=tel]').val();
+            $.post("{{url('sendcode1')}}", {'_token': "{{csrf_token()}}", 'phone': phone}, function (data) {
+                    console.log(data);
+                });
+        }
 
     $('input[name=uname]').focus(function(){
 
@@ -228,8 +236,8 @@ $(function(){
        var uv = $('input[name=tel]').val();
        $('#text1').text(uv);
 //       alert(uv);
-
 	});
+
 	//第二页的确定按钮
 	$("#btn_part2").click(function(){			
 		if(!verifyCheck._click()) return;
