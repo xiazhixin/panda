@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-
+@section('title','添加推荐商品')
 @section('content')
     <body>
         <!-- page start-->
@@ -33,7 +33,8 @@
                                 <div class="form-group ">
                                     <label for="curl" class="control-label col-lg-2">缩 略 图:</label>
                                     <div class="col-lg-10" >
-                                        <input type="text" size="50" name="gpic" id="art_thumb">
+
+                                        <input type="hidden" size="50" name="gpic" id="art_thumb">
                                         <input id="file_upload" name="file_upload" type="file" multiple="true">
                                         <p><img id="img1" alt="上传后显示图片"  style="max-width:350px;max-height:100px;" /></p>
                                     </div>
@@ -42,6 +43,12 @@
                                     <label for="ccomment" class="control-label col-lg-2">商品描述:</label>
                                     <div class="col-lg-10">
                                         <textarea class="form-control " id="ccomment" name="gdesc" required></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label for="cname" class="control-label col-lg-2">*关键字描述:</label>
+                                    <div class="col-lg-10">
+                                        <input class=" form-control" id="cname" name="keyword" minlength="2" type="text" required />
                                     </div>
                                 </div>
                                 <div class="form-group ">
@@ -97,6 +104,7 @@
 
                         $('#img1').attr('src','/'+data);
                         $('#gpic').val(data);
+                        $('#art_thumb').val(data);
                     },
                     error: function(XMLHttpRequest, textStatus, errorThrown) {
                         alert("上传失败，请检查网络后重试");

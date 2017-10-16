@@ -74,6 +74,7 @@ class GoodsController extends Controller
     public function store(Request $request)
     {
         //接收添加的商品并保存
+//        dd($request->all());
         $input = $request->except('_token','file_upload');
 
         $re =Goods::create($input);
