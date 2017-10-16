@@ -24,7 +24,7 @@ class GoodsController extends Controller
     //文件上传方法
     public function upLoad(Request $request)
     {
-        //实现     获取上传的文件对象
+        //实现获取上传的文件对象
         $file = $request->file('file_upload');
         //dd($file);
         //判断文件是否有效
@@ -33,10 +33,8 @@ class GoodsController extends Controller
             $newName = date('YmdHis') . mt_rand(1000, 9999) . '.' . $entension;
             // 1将文件上传到本地服务器
             $path = $file->move(public_path() . '/uploads', $newName);
-
             $filepath = 'uploads/' . $newName;
             //返回文件的路径
-//            dd($filepath);
           return $filepath;
         }
     }
@@ -74,6 +72,7 @@ class GoodsController extends Controller
     public function store(Request $request)
     {
         //接收添加的商品并保存
+//        dd($request->all());
         $input = $request->except('_token','file_upload');
 
         $re =Goods::create($input);

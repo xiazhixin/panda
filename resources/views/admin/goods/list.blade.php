@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-
+@section('title','浏览全部商品')
 @section('content')
 
   <body>

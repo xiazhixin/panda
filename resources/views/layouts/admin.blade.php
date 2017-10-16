@@ -267,12 +267,12 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <img alt="" src="{{asset('admin/style/img/avatar1_small.jpg')}}">
-                            <span class="username">宋占弟</span>
+                            <span class="username">{{session('user')->aname}}</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
-                            <li><a href="#"><i class=" icon-suitcase"></i>轮廓</a></li>
+                            <li><a href="{{url('admin/repass')}}"><i class=" icon-suitcase"></i>修改密码</a></li>
                             <li><a href="#"><i class="icon-cog"></i> 设置</a></li>
                             <li><a href="#"><i class="icon-bell-alt"></i>通知</a></li>
                             <li><a href="{{url('admin/logout')}}"><i class="icon-key"></i>退出</a></li>
@@ -296,7 +296,7 @@
                       </a>
                   </li>
                   <li>
-                      <a class="" href="#">
+                      <a class="" href="{{url('admin/uindex')}}">
                           <i class="icon-male"></i>
                           <span>前台用户</span>
                       </a>
@@ -327,6 +327,17 @@
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
+                          <i class="icon-apple"></i>
+                          <span>品牌管理</span>
+                          <span class="arrow"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="{{url('admin/brand')}}">浏览品牌</a></li>
+                          <li><a class="" href="{{url('admin/brand/create')}}">添加品牌</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
                           <i class="icon-shopping-cart"></i>
                           <span>商品管理</span>
                           <span class="arrow"></span>
@@ -334,147 +345,6 @@
                       <ul class="sub">
                           <li><a class="" href="{{url('admin/goods/create')}}">添加商品</a></li>
                           <li><a class="" href="{{url('admin/goods')}}">浏览商品</a></li>
-                      </ul>
-                  </li>
-                  
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="icon-bookmark"></i>
-                          <span>标签管理</span>
-                          <span class="arrow"></span>
-                      </a>
-                      <ul class="sub">
-                          <li><a class="" href="blank.html">Blank Page</a></li>
-                          <li><a class="" href="profile.html">Profile</a></li>
-                          <li><a class="" href="invoice.html">Invoice</a></li>
-                          <li><a class="" href="404.html">404 Error</a></li>
-                          <li><a class="" href="500.html">500 Error</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="icon-tasks"></i>
-                          <span>专题管理</span>
-                          <span class="arrow"></span>
-                      </a>
-                      <ul class="sub">
-                          <li><a class="" href="blank.html">Blank Page</a></li>
-                          <li><a class="" href="profile.html">Profile</a></li>
-                          <li><a class="" href="invoice.html">Invoice</a></li>
-                          <li><a class="" href="404.html">404 Error</a></li>
-                          <li><a class="" href="500.html">500 Error</a></li>
-                      </ul>
-                  </li>
-                                    <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="icon-apple"></i>
-                          <span>品牌管理</span>
-                          <span class="arrow"></span>
-                      </a>
-                      <ul class="sub">
-                          <li><a class="" href="blank.html">Blank Page</a></li>
-                          <li><a class="" href="profile.html">Profile</a></li>
-                          <li><a class="" href="invoice.html">Invoice</a></li>
-                          <li><a class="" href="404.html">404 Error</a></li>
-                          <li><a class="" href="500.html">500 Error</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="icon-building"></i>
-                          <span>订单管理</span>
-                          <span class="arrow"></span>
-                      </a>
-                      <ul class="sub">
-                          <li><a class="" href="blank.html">Blank Page</a></li>
-                          <li><a class="" href="profile.html">Profile</a></li>
-                          <li><a class="" href="invoice.html">Invoice</a></li>
-                          <li><a class="" href="404.html">404 Error</a></li>
-                          <li><a class="" href="500.html">500 Error</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="icon-heart"></i>
-                          <span>评论管理</span>
-                          <span class="arrow"></span>
-                      </a>
-                      <ul class="sub">
-                          <li><a class="" href="blank.html">Blank Page</a></li>
-                          <li><a class="" href="profile.html">Profile</a></li>
-                          <li><a class="" href="invoice.html">Invoice</a></li>
-                          <li><a class="" href="404.html">404 Error</a></li>
-                          <li><a class="" href="500.html">500 Error</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="icon-phone-sign"></i>
-                          <span>客服管理</span>
-                          <span class="arrow"></span>
-                      </a>
-                      <ul class="sub">
-                          <li><a class="" href="blank.html">Blank Page</a></li>
-                          <li><a class="" href="profile.html">Profile</a></li>
-                          <li><a class="" href="invoice.html">Invoice</a></li>
-                          <li><a class="" href="404.html">404 Error</a></li>
-                          <li><a class="" href="500.html">500 Error</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="icon-star"></i>
-                          <span>广告管理</span>
-                          <span class="arrow"></span>
-                      </a>
-                      <ul class="sub">
-                          <li><a class="" href="blank.html">Blank Page</a></li>
-                          <li><a class="" href="profile.html">Profile</a></li>
-                          <li><a class="" href="invoice.html">Invoice</a></li>
-                          <li><a class="" href="404.html">404 Error</a></li>
-                          <li><a class="" href="500.html">500 Error</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="icon-comment"></i>
-                          <span>反馈管理</span>
-                          <span class="arrow"></span>
-                      </a>
-                      <ul class="sub">
-                          <li><a class="" href="blank.html">Blank Page</a></li>
-                          <li><a class="" href="profile.html">Profile</a></li>
-                          <li><a class="" href="invoice.html">Invoice</a></li>
-                          <li><a class="" href="404.html">404 Error</a></li>
-                          <li><a class="" href="500.html">500 Error</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="icon-picture"></i>
-                          <span>轮播图管理</span>
-                          <span class="arrow"></span>
-                      </a>
-                      <ul class="sub">
-                          <li><a class="" href="blank.html">Blank Page</a></li>
-                          <li><a class="" href="profile.html">Profile</a></li>
-                          <li><a class="" href="invoice.html">Invoice</a></li>
-                          <li><a class="" href="404.html">404 Error</a></li>
-                          <li><a class="" href="500.html">500 Error</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="icon-cogs"></i>
-                          <span>网站配置</span>
-                          <span class="arrow"></span>
-                      </a>
-                      <ul class="sub">
-                          <li><a class="" href="blank.html">Blank Page</a></li>
-                          <li><a class="" href="profile.html">Profile</a></li>
-                          <li><a class="" href="invoice.html">Invoice</a></li>
-                          <li><a class="" href="404.html">404 Error</a></li>
-                          <li><a class="" href="500.html">500 Error</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -488,6 +358,73 @@
                           <li><a class="" href="{{url('admin/tui')}}">浏览商品</a></li>
                       </ul>
                   </li>
+
+                 <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon-tasks"></i>
+                          <span>专题管理</span>
+                          <span class="arrow"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="{{url('admin/activity')}}">专题列表</a></li>
+                          <li><a class="" href="{{url('admin/activity/create')}}">专题添加</a></li>
+                      </ul>
+                  </li>
+                                    
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon-building"></i>
+                          <span>订单管理</span>
+                          <span class="arrow"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="{{url('admin/order')}}">浏览订单</a></li>
+
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon-heart"></i>
+                          <span>评论管理</span>
+                          <span class="arrow"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="{{url('admin/comment')}}">浏览评论</a></li>
+
+                      </ul>
+                  </li>
+
+
+                  <li class="sub-menu">
+                      <a href="{{url('admin/back')}}" class="">
+                          <i class="icon-comment"></i>
+                          <span>反馈管理</span>
+                      </a>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon-picture"></i>
+                          <span>轮播图管理</span>
+                          <span class="arrow"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="{{url('admin/lunbo/create')}}">添加轮播图</a></li>
+                          <li><a class="" href="{{url('admin/lunbo')}}">浏览轮播图</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon-cogs"></i>
+                          <span>网站配置</span>
+                          <span class="arrow"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="{{url('admin/config')}}">网站基本信息</a></li>
+                          <li><a class="" href="{{url('admin/config/create')}}">添加网站配置</a></li>
+                          <li><a class="" href="{{url('admin/config')}}">网站配置列表</a></li>
+                      </ul>
+                  </li>
+                  
               </ul>
               <!-- sidebar menu end-->
           </div>
@@ -496,7 +433,7 @@
       <!--main content start-->
       <section id="main-content">
         <section class="wrapper">
-                <!-- 123434123411234213414我说的夫人 -->
+
             @section('content')
         
             @show

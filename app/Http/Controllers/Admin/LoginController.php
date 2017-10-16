@@ -27,9 +27,9 @@ class LoginController extends Controller
     public function yzm()
     {
         $code = new Code();
+       $code ->  make();
 
-        $code ->  make();
-
+      // dd(session('code'));
     }
 
     public function dologin(Request $request)
@@ -37,7 +37,8 @@ class LoginController extends Controller
         $input = $request->except('_token'); //去除 ——Token 值
 
 
-//        dd($input);
+//       dd($input);
+//        dd(strtoupper($input['code']));
 
         $rule = [
             'aname' => 'required|between:4,18',
@@ -56,7 +57,7 @@ class LoginController extends Controller
         }
         //3.逻辑验证
         //  验证验证码是否正确
-        if (strtoupper($input['code']) != session('code')) {
+        if (strtoupper($input['code'])!= session('code')) {
             return redirect('admin/login')->with('errors', '验证码错误')->withInput();
         }
         //3.1 查看用户名是否存在
@@ -74,11 +75,15 @@ class LoginController extends Controller
             return redirect('admin/login')->with('errors', '密码错误')->withInput();
         }
     //4 把用户登录信息存入session里面
+//        $user = $user->toArray();
         session(['user'=>$user]);
 
-        return redirect('admin/index');
+
+
+      return redirect('admin/index');
 
 
     }
+
 
 }
