@@ -228,7 +228,7 @@
 																		<a href="javascript:;" onclick="doGoods({{$v->oid}})">确认收货</a></div>
 																@elseif($v->ostatus == '2')
 																	<div class="am-btn am-btn-danger anniu">
-																		<a href="{{url('home/comment/')/+$v->gid}}">待评论</a></div>
+																		<a href="{{url('home/comment/')}}/{{$v->gid}}">待评论</a></div>
 																@elseif($v->ostatus == '3')
 																	<div class="am-btn am-btn-danger anniu">
 																		<a href="">去付款</a></div>

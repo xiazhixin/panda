@@ -109,4 +109,6 @@ Route::get('/', function () {
 
         //轮播图片地址写入路由
         Route::post('/admin/but','Admin\LunboController@but');
+        //商品评论
+        Route::resource('/home/comment','Home\CommentController');
 
