@@ -344,37 +344,19 @@
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
                           <i class="icon-shopping-cart"></i>
-                          <span>商品管理</span>
-                          <span class="arrow"></span>
-                      </a>
-                      <ul class="sub">
-                          <li><a class="" href="{{url('admin/goods/create')}}">添加商品</a></li>
-                          <li><a class="" href="{{url('admin/goods')}}">浏览商品</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="icon-shopping-cart"></i>
+
                           <span>推荐商品管理</span>
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
                           <li><a class="" href="{{url('admin/tui/create')}}">添加商品</a></li>
                           <li><a class="" href="{{url('admin/tui')}}">浏览商品</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="icon-bookmark"></i>
-                          <span>标签管理</span>
+                          <span>商品管理</span>
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="blank.html">Blank Page</a></li>
-                          <li><a class="" href="profile.html">Profile</a></li>
-                          <li><a class="" href="invoice.html">Invoice</a></li>
-                          <li><a class="" href="404.html">404 Error</a></li>
-                          <li><a class="" href="500.html">500 Error</a></li>
+                          <li><a class="" href="{{url('admin/goods/create')}}">添加商品</a></li>
+                          <li><a class="" href="{{url('admin/goods')}}">浏览商品</a></li>
                       </ul>
                   </li>
                  <li class="sub-menu">
@@ -409,35 +391,7 @@
                       <ul class="sub">
                           <li><a class="" href="{{url('admin/comment')}}">浏览评论</a></li>
                       </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="icon-phone-sign"></i>
-                          <span>客服管理</span>
-                          <span class="arrow"></span>
-                      </a>
-                      <ul class="sub">
-                          <li><a class="" href="blank.html">Blank Page</a></li>
-                          <li><a class="" href="profile.html">Profile</a></li>
-                          <li><a class="" href="invoice.html">Invoice</a></li>
-                          <li><a class="" href="404.html">404 Error</a></li>
-                          <li><a class="" href="500.html">500 Error</a></li>
-                      </ul>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" class="">
-                          <i class="icon-star"></i>
-                          <span>广告管理</span>
-                          <span class="arrow"></span>
-                      </a>
-                      <ul class="sub">
-                          <li><a class="" href="blank.html">Blank Page</a></li>
-                          <li><a class="" href="profile.html">Profile</a></li>
-                          <li><a class="" href="invoice.html">Invoice</a></li>
-                          <li><a class="" href="404.html">404 Error</a></li>
-                          <li><a class="" href="500.html">500 Error</a></li>
-                      </ul>
-                  </li>
+                  </li>                           
                   <li class="sub-menu">
                       <a href="{{url('admin/back')}}" class="">
                           <i class="icon-comment"></i>
@@ -462,7 +416,6 @@
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="{{url('admin/config')}}">网站基本信息</a></li>
                           <li><a class="" href="{{url('admin/config/create')}}">添加网站配置</a></li>
                           <li><a class="" href="{{url('admin/config')}}">网站配置列表</a></li>
                       </ul>

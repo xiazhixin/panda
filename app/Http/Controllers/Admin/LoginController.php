@@ -32,6 +32,7 @@ class LoginController extends Controller
     public function yzm()
     {
         $code = new Code();
+
         $code->make();
     }
     // 验证码生成
@@ -59,6 +60,8 @@ class LoginController extends Controller
         header("Content-Type:image/jpeg");
         $builder->output();
 
+       $code ->  make();
+
     }
 
 
@@ -66,7 +69,6 @@ class LoginController extends Controller
     public function dologin(Request $request)
     {
         $input = $request->except('_token'); //去除 ——Token 值
-
 
         $rule = [
             'aname' => 'required|between:4,18',
@@ -85,7 +87,6 @@ class LoginController extends Controller
         }
         //3.逻辑验证
         //  验证验证码是否正确
-
         if (strtoupper($input['code']) != session('code')) {
 
             return redirect('admin/login')->with('errors', '验证码错误')->withInput();
@@ -104,6 +105,7 @@ class LoginController extends Controller
         if (!Hash::check($input['apassword'], $hashedPassword)) {
             return redirect('admin/login')->with('errors', '密码错误')->withInput();
         }
+
 		//4 把用户登录信息存入session里面
         session(['user'=>$user]);
 

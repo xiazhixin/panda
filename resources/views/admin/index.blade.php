@@ -3,7 +3,6 @@
 @extends('layouts.admin')
 @section('content')
     <h1>欢迎登陆网站后台管理中心</h1>
-
   <!--state overview start-->
   <div class="row state-overview">
       <div class="col-lg-3 col-sm-6">

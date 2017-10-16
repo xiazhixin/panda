@@ -8832,7 +8832,6 @@ $.widget("ui.dialog", {
 				this._createButtons( value );
 				break;
 			case "closeText":
-
 				// ensure that we always index a string
 				this.uiDialogTitlebarCloseText.text( "" + value );
 				break;

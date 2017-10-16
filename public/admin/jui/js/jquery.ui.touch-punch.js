@@ -141,6 +141,7 @@
    * A duck punch of the $.ui.mouse _mouseInit method to support touch events.
    * This method extends the widget with bound touch event handlers that
    * translate touch events to mouse events and index them to the widget's
+   * original mouse event handling methods.
    */
   mouseProto._mouseInit = function () {
     

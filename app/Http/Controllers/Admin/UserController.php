@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-
 use App\Http\Model\HomeUser;
 use App\User;
 use Illuminate\Http\Request;
@@ -66,7 +65,7 @@ class UserController extends Controller
         } else {
             return redirect('admin/uupdat/'.$id)->with('msg','用户修改失败');
         };
-
+  
     }
 
     public function upget(Request $request,$id)

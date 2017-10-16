@@ -38,7 +38,6 @@
                     <td>
                         <a href="{{url('admin/config/'.$v->conf_id.'/edit')}}"><button class="btn btn-primary btn-xs"><i class="icon-pencil"></i></button></a>
                         <a href="javascript:;" onclick="delArt({{$v->conf_id}})"><button class="btn btn-danger btn-xs"><i class="icon-trash "></i></button></a>
-
                     </td>
                 </tr>
                 @endforeach
@@ -54,7 +53,6 @@
         </form>
         </section>
     </div>
-
     <script>
 
         function delArt(id){

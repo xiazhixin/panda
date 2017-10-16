@@ -2651,7 +2651,6 @@ jQuery.event = {
 		}
 
 		// Caller can index in an object of custom data in lieu of the handler
-
 		if ( handler.handler ) {
 			handleObjIn = handler;
 			handler = handleObjIn.handler;
@@ -2870,7 +2869,6 @@ jQuery.event = {
 
 
 		// Caller can index in an Event, Object, or just an event type string
-
 		event = typeof event === "object" ?
 			// jQuery.Event object
 			event[ jQuery.expando ] ? event :
@@ -8731,7 +8729,6 @@ function propFilter( props, specialEasing ) {
 
 
 	// camelCase, specialEasing and expand cssHook index
-
 	for ( index in props ) {
 		name = jQuery.camelCase( index );
 		easing = specialEasing[ name ];
