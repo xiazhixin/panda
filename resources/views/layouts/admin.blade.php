@@ -344,13 +344,15 @@
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
                           <i class="icon-shopping-cart"></i>
-
                           <span>推荐商品管理</span>
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
                           <li><a class="" href="{{url('admin/tui/create')}}">添加商品</a></li>
                           <li><a class="" href="{{url('admin/tui')}}">浏览商品</a></li>
+                      </ul>
+                      <a href="javascript:;" class="">
+                          <i class="icon-shopping-cart"></i>
                           <span>商品管理</span>
                           <span class="arrow"></span>
                       </a>
