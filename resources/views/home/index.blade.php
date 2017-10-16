@@ -26,8 +26,14 @@
 		<ul class="message-l">
 			<div class="topMessage">
 				<div class="menu-hd">
-					<a href="#" target="_top" class="h">亲，请登录</a>
-					<a href="#" target="_top">免费注册</a>
+					@if(session('user'))
+						<a href="#" target="_top" class="h" style="color:blue">你好{{session('user')['uname']}}</a>
+						<a href="outlog" target="_top" style="color:blue">退出登录</a>
+					@else
+					<a href="{{url('home/login')}}" target="_top" class="h" >亲，请登录</a>
+					<a href="{{url('home/register1')}}" target="_top">免费注册</a>
+
+					@endif
 				</div>
 			</div>
 		</ul>
@@ -37,6 +43,9 @@
 			</div>
 			<div class="topMessage my-shangcheng">
 				<div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+			</div>
+			<div class="topMessage my-shangcheng">
+				<div class="menu-hd MyShangcheng"><a href="{{url('home/order')}}" target="_top">我的订单</a></div>
 			</div>
 			<div class="topMessage mini-cart">
 				<div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
@@ -56,9 +65,10 @@
 
 		<div class="search-bar pr">
 			<a name="index_none_header_sysc" href="#"></a>
-			<form>
-				<input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off">
-				<input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit">
+			
+			<form action="{{url('home/list')}}" method="get">
+				<input id="searchInput" name="keywords" type="text" placeholder="关键字" autocomplete="on">
+				<input id="ai-topsearch" class="submit am-btn" value="搜索"  type="submit">
 			</form>
 		</div>
 	</div>
@@ -73,10 +83,9 @@
                       <!--轮播 -->
 						<div class="am-slider am-slider-default scoll" data-am-flexslider id="demo-slider-0">
 							<ul class="am-slides">
-								<li class="banner1"><a href="introduction.html"><img src="{{asset('home/images/ad1.jpg')}}" /></a></li>
-								<li class="banner2"><a><img src="{{asset('home/images/ad2.jpg')}}" /></a></li>
-								<li class="banner3"><a><img src="{{asset('home/images/ad3.jpg')}}" /></a></li>
-								<li class="banner4"><a><img src="{{asset('home/images/ad4.jpg')}}" /></a></li>
+								@foreach($lunbo as $k=>$v)
+								<li class="banner1"><a href="introduction.html"><img src="{{$v->art_thumb}}" /></a></li>
+								@endforeach
 
 							</ul>
 						</div>
@@ -390,39 +399,24 @@
 				<div class="shopMain" id="shopmain">
 
 					<!--今日推荐 -->
-							这里是推荐位
+
 					<div class="am-g am-g-fixed recommendation">
 						<div class="clock am-u-sm-3" ">
 							<img src="../images/2016.png "></img>
 							<p>今日<br>推荐</p>
 						</div>
+					@foreach($tuis as $k => $v)
 						<div class="am-u-sm-4 am-u-lg-3 ">
 							<div class="info ">
-								<h3>真的有鱼</h3>
-								<h4>开年福利篇</h4>
+								<h3>{{$v['gname']}}</h3>
+								<h4>{{$v['keyword']}}</h4>
 							</div>
 							<div class="recommendationMain one">
-								<a href="introduction.html"><img src="../images/tj.png "></img></a>
+								<a href="introduction.html"><img src="{{asset($v['gpic'])}}"></img></a>
 							</div>
 						</div>
-						<div class="am-u-sm-4 am-u-lg-3 ">
-							<div class="info ">
-								<h3>囤货过冬</h3>
-								<h4>让爱早回家</h4>
-							</div>
-							<div class="recommendationMain two">
-								<img src="../images/tj1.png "></img>
-							</div>
-						</div>
-						<div class="am-u-sm-4 am-u-lg-3 ">
-							<div class="info ">
-								<h3>浪漫情人节</h3>
-								<h4>甜甜蜜蜜</h4>
-							</div>
-							<div class="recommendationMain three">
-								<img src="../images/tj2.png "></img>
-							</div>
-						</div>
+					@endforeach
+
 
 					</div>
 					<div class="clear "></div>
@@ -482,8 +476,8 @@
 					<!--甜点-->
 					<div class="am-container ">
 						<div class="shopTitle ">
-							<h4>甜品</h4>
-							<h3>每一道甜品都有一个故事</h3>
+							{{--<h4>甜品</h4>--}}
+							<h3>每一件商品都有一个属于他自己的故事</h3>
 							<div class="today-brands ">
 								<a href="# ">桂花糕</a>
 								<a href="# ">奶皮酥</a>
@@ -502,7 +496,7 @@
 
 						{{--这里遍历商品--}}
 						{{--@foreach($goods as $k=>$v)--}}
-							<div class="am-u-sm-7 am-u-md-4 text-two sug">
+							<div class="am-u-sm-7 am-u-md-5 text-two ">
 								<div class="outer-con ">
 									<div class="title ">
 										雪之恋和风大福
@@ -510,76 +504,133 @@
 									<div class="sub-title ">
 										¥13.8
 									</div>
-									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+									{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
 								</div>
-								<a href="# "><img src="../images/2.jpg" /></a>
+								<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
 							</div>
-
-							<div class="am-u-sm-7 am-u-md-4 text-two">
-								<div class="outer-con ">
-									<div class="title ">
-										雪之恋和风大福
-									</div>
-									<div class="sub-title ">
-										¥13.8
-									</div>
-									<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
-								</div>
-								<a href="# "><img src="../images/1.jpg" /></a>
-							</div>
-
-
-						<div class="am-u-sm-3 am-u-md-2 text-three big">
+						<div class="am-u-sm-7 am-u-md-5 text-two ">
 							<div class="outer-con ">
 								<div class="title ">
-									小优布丁
+									雪之恋和风大福
 								</div>
 								<div class="sub-title ">
-									¥4.8
+									¥13.8
 								</div>
-								<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+								{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
 							</div>
-							<a href="# "><img src="../images/5.jpg" /></a>
+							<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
 						</div>
-
-						<div class="am-u-sm-3 am-u-md-2 text-three sug">
+						<div class="am-u-sm-7 am-u-md-5 text-two ">
 							<div class="outer-con ">
 								<div class="title ">
-									小优布丁
+									雪之恋和风大福
 								</div>
 								<div class="sub-title ">
-									¥4.8
+									¥13.8
 								</div>
-								<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+								{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
 							</div>
-							<a href="# "><img src="../images/3.jpg" /></a>
+							<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
 						</div>
-
-						<div class="am-u-sm-3 am-u-md-2 text-three ">
+						<div class="am-u-sm-7 am-u-md-5 text-two ">
 							<div class="outer-con ">
 								<div class="title ">
-									小优布丁
+									雪之恋和风大福
 								</div>
 								<div class="sub-title ">
-									¥4.8
+									¥13.8
 								</div>
-								<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+								{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
 							</div>
-							<a href="# "><img src="../images/4.jpg" /></a>
+							<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
 						</div>
-
-						<div class="am-u-sm-3 am-u-md-2 text-three last big ">
+						<div class="am-u-sm-7 am-u-md-5 text-two ">
 							<div class="outer-con ">
 								<div class="title ">
-									小优布丁
+									雪之恋和风大福
 								</div>
 								<div class="sub-title ">
-									¥4.8
+									¥13.8
 								</div>
-								<i class="am-icon-shopping-basket am-icon-md  seprate"></i>
+								{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
 							</div>
-							<a href="# "><img src="../images/5.jpg" /></a>
+							<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
 						</div>
+						<div class="am-u-sm-7 am-u-md-5 text-two ">
+							<div class="outer-con ">
+								<div class="title ">
+									雪之恋和风大福
+								</div>
+								<div class="sub-title ">
+									¥13.8
+								</div>
+								{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
+							</div>
+							<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
+						</div>
+						<div class="am-u-sm-7 am-u-md-5 text-two ">
+							<div class="outer-con ">
+								<div class="title ">
+									雪之恋和风大福
+								</div>
+								<div class="sub-title ">
+									¥13.8
+								</div>
+								{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
+							</div>
+							<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
+						</div>
+						<div class="am-u-sm-7 am-u-md-5 text-two ">
+							<div class="outer-con ">
+								<div class="title ">
+									雪之恋和风大福
+								</div>
+								<div class="sub-title ">
+									¥13.8
+								</div>
+								{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
+							</div>
+							<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
+						</div>
+						<div class="am-u-sm-7 am-u-md-5 text-two ">
+							<div class="outer-con ">
+								<div class="title ">
+									雪之恋和风大福
+								</div>
+								<div class="sub-title ">
+									¥13.8
+								</div>
+								{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
+							</div>
+							<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
+						</div>
+						<div class="am-u-sm-7 am-u-md-5 text-two ">
+							<div class="outer-con ">
+								<div class="title ">
+									雪之恋和风大福
+								</div>
+								<div class="sub-title ">
+									¥13.8
+								</div>
+								{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
+							</div>
+							<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
+						</div>
+						<div class="am-u-sm-7 am-u-md-5 text-two ">
+							<div class="outer-con ">
+								<div class="title ">
+									雪之恋和风大福
+								</div>
+								<div class="sub-title ">
+									¥13.8
+								</div>
+								{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
+							</div>
+							<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
+						</div>
+
+
+
 
 					</div>
                  <div class="clear "></div>

@@ -1804,7 +1804,7 @@ window.Modernizr = (function( window, document, undefined ) {
     };
 
 
-    // Note, Android < 4 will pass this test, but can only animate
+    // Note, Android < 4 will index this test, but can only animate
     //   a single property at a time
     //   daneden.me/2011/12/putting-up-with-androids-bullshit/
     tests['cssanimations'] = function() {
@@ -2110,7 +2110,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
                     } else if ( /^(search|tel)$/.test(inputElemType) ){
                       // Spec doesn't define any special parsing or detectable UI
-                      //   behaviors so we pass these through as true
+                      //   behaviors so we index these through as true
 
                       // Interestingly, opera fails the earlier test, so it doesn't
                       //  even make it here.
