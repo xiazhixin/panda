@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Model\Config;
+use App\Http\Model\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -144,6 +145,27 @@ class ConfigController extends Controller
      */
     public function destroy($id)
     {
-        //
+//        return $id;
+//        //查询要删除的记录的模型
+       $user = Config::find($id);
+//        //执行删除操作
+//        dd($user);
+        $re = $user->delete();
+        //根据返回的结果处理成功和失败
+//        dd($re);
+        if($re){
+            $data=[
+                'status'=>0,
+                'msg'=>'删除成功'
+            ];
+        }else{
+            $data=[
+                'status'=>1,
+                'msg'=>'删除失败'
+            ];
+        }
+
+        return  $data;
+
     }
 }

@@ -439,9 +439,7 @@ jQuery.extend({
 	isPlainObject: function( obj ) {
 		// Must be an Object.
 		// Because of IE, we also have to check the presence of the constructor property.
-
 		// Make sure that DOM nodes and window objects don't index through, as well
-
 		if ( !obj || jQuery.type(obj) !== "object" || obj.nodeType || jQuery.isWindow( obj ) ) {
 			return false;
 		}
@@ -706,9 +704,7 @@ jQuery.extend({
 		inv = !!inv;
 
 		// Go through the array, only saving the items
-
 		// that index the validator function
-
 		for ( ; i < length; i++ ) {
 			retVal = !!callback( elems[ i ], i );
 			if ( inv !== retVal ) {
@@ -2653,7 +2649,6 @@ jQuery.event = {
 		if ( elem.nodeType === 3 || elem.nodeType === 8 || !types || !handler || !(elemData = jQuery._data( elem )) ) {
 			return;
 		}
-
 
 		// Caller can index in an object of custom data in lieu of the handler
 
@@ -5626,7 +5621,6 @@ jQuery.extend({
 function winnow( elements, qualifier, keep ) {
 
 	// Can't index null or undefined to indexOf in Firefox 4
-
 	// Set to 0 to skip string check
 	qualifier = qualifier || 0;
 
@@ -8835,7 +8829,6 @@ function defaultPrefilter( elem, props, opts ) {
 		});
 	}
 
-
 	// height/width overflow index
 	if ( elem.nodeType === 1 && ( "height" in props || "width" in props ) ) {
 		// Make sure that nothing sneaks out
@@ -8872,9 +8865,7 @@ function defaultPrefilter( elem, props, opts ) {
 	}
 
 
-
 	// show/hide index
-
 	for ( index in props ) {
 		value = props[ index ];
 		if ( rfxtypes.exec( value ) ) {

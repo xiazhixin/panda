@@ -17,6 +17,7 @@
 		<script src="{{asset('home/AmazeUI-2.4.2/assets/js/amazeui.js')}}"></script>
 		<script src="{{asset('home/layer/layer.js')}}"></script>
 
+
 	</head>
 
 	<body>
@@ -140,7 +141,6 @@
 
 									<div class="order-main">
 										<div class="order-list">
-
 											<!--所有订单-->
 											@foreach($orders as $k=>$v)
 											<div class="order-status5">
@@ -364,8 +364,6 @@
 										</div>
 
 									</div>
-
-
 								</div>
 								<div class="am-tab-panel am-fade" id="tab3">
 									<div class="order-top">
@@ -742,11 +740,8 @@
 															</div>
 														</div>
 													</div>
-
 												@endif
 											@endforeach
-
-
 										</div>
 
 									</div>
@@ -801,11 +796,7 @@
                             });
                         });
                     }
-
-
-
 				</script>
-
 				<!--底部-->
 				<div class="footer">
 					<div class="footer-hd">
@@ -859,7 +850,6 @@
 							<li> <a href="bill.html">账单明细</a></li>
 						</ul>
 					</li>
-
 					<li class="person">
 						<a href="#">我的小窝</a>
 						<ul>
@@ -869,9 +859,7 @@
 							<li> <a href="news.html">消息</a></li>
 						</ul>
 					</li>
-
 				</ul>
-
 			</aside>
 		</div>
 

@@ -14,7 +14,6 @@
 		<link href="/home/css/dlstyle.css" rel="stylesheet" type="text/css">
         <script src="/home/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
         <script src="/home/AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
-
 	</head>
 
 	<body>
@@ -80,7 +79,6 @@
 									<button  name=""value="" class="am-btn am-btn-primary am-btn-sm" >登 录</button>
 								</div>
 					</form>
-
 						<div class="partner">		
 								<h3>合作账号</h3>
 							<div class="am-btn-group">

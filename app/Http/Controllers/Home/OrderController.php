@@ -17,7 +17,9 @@ class OrderController extends Controller
      */
     public function index()
     {
+
         //查询出用户对应的所有订单
+
         $orders = DB::table('shop_orders')
             ->leftJoin('users','shop_orders.uid','=','users.uid')
             ->leftJoin('shop_detail','shop_orders.oid','=','shop_detail.oid')
@@ -25,7 +27,6 @@ class OrderController extends Controller
             ->where('users.uid','1')
             ->get();
 //        dd($orders);
-
 
         return view('home.order.order',compact('orders'));
     }
@@ -64,6 +65,7 @@ class OrderController extends Controller
             return back()->with('err','已确认！');
         }
         return back()->with('err','确认收货失败！');
+
     }
 
     /**
@@ -74,7 +76,7 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-
+	
     }
 
     /**
@@ -110,6 +112,7 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
+
 
         $del = Order::where('oid',$id)->delete();
         if($del){

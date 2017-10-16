@@ -8,7 +8,6 @@
         <div class="col-lg-12">
             <section class="panel">
                 <header class="panel-heading">
-
                     后台用户浏览
                 </header>
                 <div class="search_wrap" style="margin:20px;">
@@ -34,7 +33,6 @@
                     </tr>
                     </thead>
                     <tbody>
-
                     @foreach( $users as $k=>$v)
                     <tr>
                         <td><a href="#">{{$v->aid}}</a></td>
@@ -44,16 +42,12 @@
                         <td class="hidden-phone">{{$th[$v->auth]}}</td>
                         <td>
                             <a href="{{url('admin/user/'.$v->aid.'/edit')}}"> <button class="btn btn-primary btn-xs"><i class="icon-pencil"></i></button></a>
-
                             <a href="javascript:;" onclick="delUser({{$v->aid}})">  <button class="btn btn-danger btn-xs"><i class="icon-trash "></i></button> </a>
-
                         </td>
                     </tr>
                      @endforeach
                     </tbody>
-
                 </table>
-
                 <div class="page_list" style="float: right;">
                     {!! $users->appends(['keywords' => $input])->render() !!}
                 </div>
@@ -73,14 +67,7 @@
 //                通过ajax 向服务器发送一个删除请求
 
 //                $.post('请求的路径'，携带的数据参数，执行后返回的数据)
-//                {'key':'value','key1':'value1'}
                 $.post("{{url('admin/user/')}}/"+id,{'_method':'delete','_token':"{{csrf_token()}}"},function(data){
-//                    需要将json字符串变成json对象
-                    //var data = JSON.parse(data);
-
-//                    JSON.parse(jsonstr); //可以将json字符串转换成json对象
-//                    JSON.stringify(jsonobj); //可以将json对象转换成json对符串
-
 
                     if(data.status == 0){
                         location.href = location.href;
@@ -98,7 +85,5 @@
         }
 
     </script>
-
-
 
 @endsection

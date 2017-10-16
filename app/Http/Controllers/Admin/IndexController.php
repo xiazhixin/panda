@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-
 use App\User;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Support\Facades\Validator;
-
 
 class IndexController extends Controller
 {
@@ -32,7 +29,6 @@ class IndexController extends Controller
         return redirect('admin/login');
 
     }
-
 
     //   修改密码页面
     public function repass()

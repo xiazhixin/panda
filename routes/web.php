@@ -42,11 +42,6 @@ Route::get('/', function () {
     //品牌管理
     Route::resource('admin/brand','Admin\BrandController');
 
-
-
-
-
-
     //后台生成验证码
     Route::get('admin/yzm','Admin\LoginController@yzm');
     //验证码路由
@@ -85,6 +80,7 @@ Route::get('/', function () {
     Route::resource('admin/back','Admin\BackController');
     
 //});
+
 
         /*----------------------------------------厉害的分割线------------------------------------------------------------*/
         //前台登录显示

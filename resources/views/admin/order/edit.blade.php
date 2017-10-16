@@ -8,7 +8,6 @@
             <header class="panel-heading">
                 修改订单
             </header>
-
             @foreach($orders as $k=>$v)
             <div class="panel-body">
 
@@ -36,10 +35,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label"><i style="color:red">*</i>联系电话</label>
                         <div class="col-sm-5">
-
                             <input class="form-control" name="tel" type="text" value="{{$v->tel}}">
-
-
                         </div>
                     </div>
                     <div class="form-group">
@@ -56,18 +52,13 @@
                         <label class="col-sm-2 control-label"><i style="color:red">*</i>总数量</label>
                         <div class="col-sm-5">
                             <input class="form-control" name="ocnt" type="text" readonly value="{{$v->ocnt}}" >
-
-
                         </div>
                     </div>
                     <div class="form-group">
 
                         <label class="col-sm-2 control-label"> <i style="color:red">*</i>总金额</label>
                         <div class="col-sm-5">
-
                             <input class="form-control" name="ormd" type="text" readonly value="{{$v->ormd}}">
-
-
                         </div>
                     </div>
 
@@ -95,8 +86,6 @@
                         <th> 商品编号</th>
                         <th> 商品名称</th>
                         <th>商品图片</th>
-
-
                         <th>购买数量</th>
                         <th>定价</th>
                         <th>小计</th>
@@ -104,29 +93,18 @@
                     </tr>
                     </thead>
                     <tbody>
-
-
                     <tr>
                         <td>{{$v->gid}}</td>
-
                         <td>{{$v->gname}}</td>
                         <td>图片路径</td>
-
                         <td>{{$v->dcnt}}</td>
                         <td>{{$v->price}}</td>
-
                         <td>{{$v->dcnt*$v->price}}</td>
-
-
                     </tr>
-
-
                     </tbody>
-
                 </table>
             </section>
         </div>
-
 
     @endforeach
 

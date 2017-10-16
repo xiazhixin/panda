@@ -58,6 +58,7 @@ class LoginController extends Controller
         header("Cache-Control: no-cache, must-revalidate");
         header("Content-Type:image/jpeg");
         $builder->output();
+
     }
 
 
@@ -65,7 +66,6 @@ class LoginController extends Controller
     public function dologin(Request $request)
     {
         $input = $request->except('_token'); //去除 ——Token 值
-
 
 
         $rule = [
@@ -104,12 +104,10 @@ class LoginController extends Controller
         if (!Hash::check($input['apassword'], $hashedPassword)) {
             return redirect('admin/login')->with('errors', '密码错误')->withInput();
         }
-    //4 把用户登录信息存入session里面
-
+		//4 把用户登录信息存入session里面
         session(['user'=>$user]);
 
        return redirect('admin/index');
-
 
 
     }

@@ -1,6 +1,4 @@
 <!-- 后台首页 -->
-
-
 @section('title', '首页')
 @extends('layouts.admin')
 @section('content')
@@ -186,7 +184,6 @@
                       <!--work progress end-->
                   </div>
               </div>
-        
-      
+
   </div>
 @endsection

@@ -42,6 +42,31 @@ class UserController extends Controller
     {
         $user = HomeUser::find($id);
         return view('admin/user/upuuser',compact('user'));
+
+    }
+
+    public function upget(Request $request,$id)
+    {
+        $input=$request->except('_token');
+//       dd($input);
+
+        //  2 找到要修改的用户记录，用提交过来的修改值修改
+        $user = HomeUser::find($id);
+
+        $user->uname = $input['uname'];
+        $user->email = $input['email'];
+        $user->tel = $input['tel'];
+        $user->status = $input['status'];
+        $re = $user->save();
+//        dd($re);
+
+        if ($re){
+
+            return redirect('admin/uindex');
+        } else {
+            return redirect('admin/uupdat/'.$id)->with('msg','用户修改失败');
+        };
+
     }
 
     public function upget(Request $request,$id)
@@ -66,7 +91,6 @@ class UserController extends Controller
             return redirect('admin/uupdat/'.$id)->with('msg','用户修改失败');
         };
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -124,7 +148,6 @@ class UserController extends Controller
 
 //             return '成功';
 
-
             return redirect('admin/userindex')->with('msg','用户添加成功');
         } else {
 
@@ -169,7 +192,6 @@ class UserController extends Controller
 
         $input = $request->except('_token','_method');
 //       $re=$request->all();
-
 
         $rule = [
             'aname' => 'required|between:4,18',
@@ -234,6 +256,5 @@ class UserController extends Controller
 //        return response()->json($data);
         return  $data;
     }
-
 
 }

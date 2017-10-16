@@ -11,9 +11,7 @@
               <div class="col-lg-12">
                   <section class="panel">
                       <header class="panel-heading">
-
                           后台管理用户修改
-
                       </header>
                       <div class="panel-body">
                           @if (count($errors) > 0)
@@ -40,10 +38,6 @@
                                           <input class=" form-control" id="firstname" name="aname" type="text"  value="{{$user->aname}}"/>
                                       </div>
                                   </div>
-
-
-
-
                                   <div class="form-group ">
                                       <label for="email" class="control-label col-lg-2">邮箱</label>
                                       <div class="col-lg-10">

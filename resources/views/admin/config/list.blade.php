@@ -38,6 +38,7 @@
                     <td>
                         <a href="{{url('admin/config/'.$v->conf_id.'/edit')}}"><button class="btn btn-primary btn-xs"><i class="icon-pencil"></i></button></a>
                         <a href="javascript:;" onclick="delArt({{$v->conf_id}})"><button class="btn btn-danger btn-xs"><i class="icon-trash "></i></button></a>
+
                     </td>
                 </tr>
                 @endforeach
@@ -53,5 +54,30 @@
         </form>
         </section>
     </div>
+
+    <script>
+
+        function delArt(id){
+
+            layer.confirm('确认删除？', {
+                btn: ['确认','取消'] //按钮
+            }, function(){
+
+                $.post("{{url('admin/config')}}/"+id,{'_method':'delete','_token':"{{csrf_token()}}"},function(data){
+//                   console.log(data);
+                    if(data.status == 0){
+                        location.href = location.href;
+                        layer.msg(data.msg, {icon: 6});
+                    }else{
+                        location.href = location.href;
+                        layer.msg(data.msg, {icon: 5});
+                    }
+
+
+                })
+            });
+        }
+
+    </script>
 
 @endsection

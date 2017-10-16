@@ -9,7 +9,7 @@
 <link href="/home/regis/css/index.css" rel="stylesheet">
 <script src="/home/regis/js/jquery-1.11.1.min.js"></script>
 <script src="/home/regis/js/register.js"></script>
-    <script src="/home/layer/layer.js"></script>
+<script src="/home/layer/layer.js"></script>
 </head>
 <body class="bgf4">
 <div class="login-box f-mt10 f-pb50">
