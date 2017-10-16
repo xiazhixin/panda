@@ -24,6 +24,7 @@
 {{--    <script src="{{asset('admin/style/js/html5shiv.js')}}"></script>--}}
 {{--    <script src="{{asset('admin/style/js/respond.min.js')}}"></script>--}}
 
+
       <!-- js placed at the end of the document so the pages load faster -->
       <script src="{{asset('admin/style/js/jquery.js')}}"></script>
       <script src="{{asset('admin/style/js/jquery-1.8.3.min.js')}}"></script>
@@ -37,6 +38,7 @@
 
       {{--删除插件--}}
       <script type="text/javascript" src="{{asset('layer/layer.js')}}"></script>
+
   </head>
 
   <body>
@@ -268,14 +270,17 @@
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <img alt="" src="{{asset('admin/style/img/avatar1_small.jpg')}}">
                             <span class="username">{{session('user')->aname}}</span>
+
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
+
                             <li><a href="{{url('admin/repass')}}"><i class=" icon-suitcase"></i>修改密码</a></li>
                             <li><a href="#"><i class="icon-cog"></i> 设置</a></li>
                             <li><a href="#"><i class="icon-bell-alt"></i>通知</a></li>
                             <li><a href="{{url('admin/logout')}}"><i class="icon-key"></i>退出</a></li>
+
                         </ul>
                     </li>
                     <!-- user login dropdown end -->
@@ -297,10 +302,10 @@
                   </li>
                   <li>
                       <a class="" href="{{url('admin/uindex')}}">
+
                           <i class="icon-male"></i>
                           <span>前台用户</span>
                       </a>
-
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
@@ -309,8 +314,10 @@
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
+
                           <li><a class="" href="{{url('admin/user/create')}}">添加用户</a></li>
                           <li><a class="" href="{{url('admin/user')}}">用户列表</a></li>
+
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -320,6 +327,7 @@
                           <span class="arrow"></span>
                       </a>
                       <ul class="sub">
+
                           <li><a class="" href="{{url('admin/cate/')}}">浏览类别</a></li>
                           <li><a class="" href="{{url('admin/cate/create')}}">添加类别</a></li>
                       </ul>
@@ -334,6 +342,7 @@
                       <ul class="sub">
                           <li><a class="" href="{{url('admin/brand')}}">浏览品牌</a></li>
                           <li><a class="" href="{{url('admin/brand/create')}}">添加品牌</a></li>
+
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -383,7 +392,6 @@
                           <li><a class="" href="{{url('admin/activity/create')}}">专题添加</a></li>
                       </ul>
                   </li>
-                                    
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
                           <i class="icon-building"></i>
@@ -403,7 +411,6 @@
                       </a>
                       <ul class="sub">
                           <li><a class="" href="{{url('admin/comment')}}">浏览评论</a></li>
-
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -439,6 +446,7 @@
                           <i class="icon-comment"></i>
                           <span>反馈管理</span>
                       </a>
+
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
@@ -449,6 +457,7 @@
                       <ul class="sub">
                           <li><a class="" href="{{url('admin/lunbo/create')}}">添加轮播图</a></li>
                           <li><a class="" href="{{url('admin/lunbo')}}">浏览轮播图</a></li>
+
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -463,7 +472,6 @@
                           <li><a class="" href="{{url('admin/config')}}">网站配置列表</a></li>
                       </ul>
                   </li>
-                  
               </ul>
               <!-- sidebar menu end-->
           </div>

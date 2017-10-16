@@ -13,7 +13,9 @@
                 <tr>
 
                     <th class="hidden-phone"><i class="icon-question-sign"></i>订单号</th>
+
                     <th><i class="icon-bookmark"></i> 买家</th>
+
                     <th><i class=" icon-edit"></i>下单时间</th>
                     <th><i class=" icon-edit"></i> 订单状态</th>
                     <th><i class=" icon-edit"></i> 联系电话</th>
@@ -24,6 +26,7 @@
                 <tbody>
                 {{csrf_field()}}
 
+
             @foreach($orders as $k=>$v)
 
                 <tr>
@@ -33,10 +36,12 @@
                         <a href="#">{{$v->uname}}</a>
                     </td>
 
+
                     <td>
                         <a href="#">{{$v->otime}}</a>
                     </td>
                     <td>
+
                         @if($v->ostatus == '0')
                             <a href="#">未发货</a>
                         @elseif($v->ostatus == '1')

@@ -11,7 +11,9 @@
               <div class="col-lg-12">
                   <section class="panel">
                       <header class="panel-heading">
+
                           后台管理用户修改
+
                       </header>
                       <div class="panel-body">
                           @if (count($errors) > 0)

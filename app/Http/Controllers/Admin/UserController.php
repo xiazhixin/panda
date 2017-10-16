@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+
 use App\Http\Model\HomeUser;
 use App\User;
 use Illuminate\Http\Request;
@@ -65,6 +66,7 @@ class UserController extends Controller
             return redirect('admin/uupdat/'.$id)->with('msg','用户修改失败');
         };
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -122,10 +124,12 @@ class UserController extends Controller
 
 //             return '成功';
 
+
             return redirect('admin/userindex')->with('msg','用户添加成功');
         } else {
 
             return redirect('/admin/user/create')->with('msg','用户添加失败');
+
 
         }
     }
@@ -165,6 +169,7 @@ class UserController extends Controller
 
         $input = $request->except('_token','_method');
 //       $re=$request->all();
+
 
         $rule = [
             'aname' => 'required|between:4,18',
@@ -208,6 +213,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
+
         //查询要删除的记录的模型
         $user = User::find($id);
         //执行删除操作
@@ -228,5 +234,6 @@ class UserController extends Controller
 //        return response()->json($data);
         return  $data;
     }
+
 
 }

@@ -3322,17 +3322,20 @@
 			 * set the width based on the real headers
 			 */
 			
+
 			// Apply all styles in one index. Invalidates layout only once because we don't read any 
 			// DOM properties.
 			_fnApplyToChildren( zeroOut, anHeadSizers );
 			 
 			// Read all widths in next index. Forces layout only once because we do not change 
+
 			// any DOM properties.
 			_fnApplyToChildren( function(nSizer) {
 				aApplied.push( _fnStringToCss( $(nSizer).width() ) );
 			}, anHeadSizers );
 			 
 			// Apply all widths in final index. Invalidates layout only once because we do not
+
 			// read any DOM properties.
 			_fnApplyToChildren( function(nToSize, i) {
 				nToSize.style.width = aApplied[i];
@@ -6397,6 +6400,7 @@
 					{
 						_fnLog( DataTable.settings[i], 0, "Cannot reinitialise DataTable.\n\n"+
 							"To retrieve the DataTables object for this table, index no arguments or see "+
+
 							"the docs for bRetrieve and bDestroy" );
 						return;
 					}
@@ -6713,6 +6717,7 @@
 			}
 				
 			/* Do a first index on the sorting classes (allows any size changes to be taken into
+
 			 * account, and also will apply sorting disabled classes if disabled
 			 */
 			_fnSortingClasses( oSettings );

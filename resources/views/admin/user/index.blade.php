@@ -8,6 +8,7 @@
         <div class="col-lg-12">
             <section class="panel">
                 <header class="panel-heading">
+
                     后台用户浏览
                 </header>
                 <div class="search_wrap" style="margin:20px;">
@@ -33,6 +34,7 @@
                     </tr>
                     </thead>
                     <tbody>
+
                     @foreach( $users as $k=>$v)
                     <tr>
                         <td><a href="#">{{$v->aid}}</a></td>
@@ -42,13 +44,16 @@
                         <td class="hidden-phone">{{$th[$v->auth]}}</td>
                         <td>
                             <a href="{{url('admin/user/'.$v->aid.'/edit')}}"> <button class="btn btn-primary btn-xs"><i class="icon-pencil"></i></button></a>
+
                             <a href="javascript:;" onclick="delUser({{$v->aid}})">  <button class="btn btn-danger btn-xs"><i class="icon-trash "></i></button> </a>
+
                         </td>
                     </tr>
                      @endforeach
                     </tbody>
 
                 </table>
+
                 <div class="page_list" style="float: right;">
                     {!! $users->appends(['keywords' => $input])->render() !!}
                 </div>
@@ -93,6 +98,7 @@
         }
 
     </script>
+
 
 
 @endsection

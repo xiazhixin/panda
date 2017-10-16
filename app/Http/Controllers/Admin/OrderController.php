@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+
 use App\Http\Model\Delivery;
 use App\Http\Model\Detail;
 use App\http\model\Goods;
@@ -18,11 +19,13 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $orders = DB::table('shop_orders')->leftJoin('users','shop_orders.uid','=','users.uid')->get();
 
         return view('admin.order.list',compact('orders'));
+
     }
 
     /**
@@ -54,11 +57,13 @@ class OrderController extends Controller
      */
     public function show($id)
     {
+
         $m = Order::where('oid',$id)->update(['ostatus' => 1]);
         if(!empty($m)) {
             return back()->with('err','已确认！');
         }
         return back()->with('err','确认收货失败！');
+
     }
 
     /**
@@ -69,6 +74,7 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
+
         $orders = DB::table('shop_orders')
             ->leftJoin('shop_delivery','shop_orders.uid','=','shop_delivery.uid')
             ->leftJoin('shop_detail','shop_orders.oid','=','shop_detail.oid')
@@ -81,6 +87,7 @@ class OrderController extends Controller
 //        dd($goods);
 
         return view('admin.order.edit',compact('orders'));
+
     }
 
     /**
@@ -92,6 +99,7 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $res = $request->except('_token','_method','oid','ocnt','ormd');
 //        dd($res);
         $delivery = Delivery::find($id);
@@ -102,6 +110,7 @@ class OrderController extends Controller
         } else {
             return back()->widt('msg','修改失败');
         }
+
     }
 
     /**

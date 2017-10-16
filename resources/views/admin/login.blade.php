@@ -26,6 +26,7 @@
 
     <div id="mws-login-wrapper">
 
+
         <div id="mws-login">
             <h1>
                 <marquee behavior="" direction="">Panda Login</marquee></h1>
@@ -44,18 +45,23 @@
                     </div>
                 @endif
             </h4>
+
             <div class="mws-login-lock"><i class="icon-lock"></i></div>
             <div id="mws-login-form">
                 <form class="mws-form" action="{{url('admin/dologin')}}" method="post">
                     {{csrf_field()}}
                     <div class="mws-form-row">
                         <div class="mws-form-item">
+
                             <input type="text" name="aname" class="mws-login-username required" placeholder="请输入账号"value="{{old('aname')}}">
+
                         </div>
                     </div>
                     <div class="mws-form-row">
                         <div class="mws-form-item">
+
                             <input type="password" name="apassword" class="mws-login-password required" placeholder="请输入密码" value="{{old('apassword')}}">
+
                         </div>
                     </div>
 
@@ -63,7 +69,7 @@
                         <input type="text" name="code" class=" required" placeholder="请输入验证码" style="width:140px; padding-top:10px; ">
                        
 						<img src="{{url('admin/yzm')}}" onclick="this.src='{{url('admin/yzm')}}?'+Math.random()" alt="">
-						
+
                     </div>
                     <div id="mws-login-remember" class="mws-form-row mws-inset">
                         <ul class="mws-form-list inline">

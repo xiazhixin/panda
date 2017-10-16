@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Home;
 
+
 use App\Http\Model\HomeUser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+
 
 class LoginController extends Controller
 {
@@ -15,6 +17,7 @@ class LoginController extends Controller
     {
         return view('home/login');
     }
+
     //前台用户退出
     public function outlog()
     {

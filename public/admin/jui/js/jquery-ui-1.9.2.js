@@ -6232,7 +6232,9 @@ $.widget( "ui.button", {
 			if ( this.buttonElement.is("a") ) {
 				this.buttonElement.keyup(function(event) {
 					if ( event.keyCode === $.ui.keyCode.SPACE ) {
+
 						// TODO index through original event correctly (just as 2nd argument doesn't work)
+
 						$( this ).click();
 					}
 				});
@@ -8832,7 +8834,9 @@ $.widget("ui.dialog", {
 				this._createButtons( value );
 				break;
 			case "closeText":
+
 				// ensure that we always index a string
+
 				this.uiDialogTitlebarCloseText.text( "" + value );
 				break;
 			case "dialogClass":

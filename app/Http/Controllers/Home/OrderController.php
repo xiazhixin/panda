@@ -97,7 +97,7 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-    
+
         $del = Order::where('oid',$id)->delete();
         if($del){
             $data=[

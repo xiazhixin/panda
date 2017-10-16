@@ -18,8 +18,10 @@ class Order extends Model
     //是否维护时间字段
     public $timestamps = false;
 
+
     public function homeusers()
     {
         return $this->hasMany('App\Http\Model\HomeUser','uid','uid');
     }
+
 }

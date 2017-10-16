@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\User;
+
 use App\Http\Org\code\Code;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -20,25 +21,53 @@ class LoginController extends Controller
      return view('admin.login');
 
 
+
     }
 
    
-//生成验证码
+//        echo Hash::make('123456789');
+
+    }
+
+    //生成验证码
     public function yzm()
     {
         $code = new Code();
-       $code ->  make();
-
-      // dd(session('code'));
+        $code->make();
     }
+    // 验证码生成
+    public function captcha($tmp)
+    {
+
+        $phrase = new PhraseBuilder;
+        // 设置验证码位数
+        $code = $phrase->build(4);
+        // 生成验证码图片的Builder对象，配置相应属性
+        $builder = new CaptchaBuilder($code, $phrase);
+        // 设置背景颜色
+        $builder->setBackgroundColor(220, 210, 230);
+        $builder->setMaxAngle(25);
+        $builder->setMaxBehindLines(0);
+        $builder->setMaxFrontLines(0);
+        // 可以设置图片宽高及字体
+        $builder->build($width = 110, $height = 35, $font = null);
+        // 获取验证码的内容
+        $phrase = $builder->getPhrase();
+        // 把内容存入session
+        \Session::flash('code', $phrase);
+        // 生成图片
+        header("Cache-Control: no-cache, must-revalidate");
+        header("Content-Type:image/jpeg");
+        $builder->output();
+    }
+
+
 
     public function dologin(Request $request)
     {
         $input = $request->except('_token'); //去除 ——Token 值
 
 
-//       dd($input);
-//        dd(strtoupper($input['code']));
 
         $rule = [
             'aname' => 'required|between:4,18',
@@ -57,7 +86,9 @@ class LoginController extends Controller
         }
         //3.逻辑验证
         //  验证验证码是否正确
-        if (strtoupper($input['code'])!= session('code')) {
+
+        if (strtoupper($input['code']) != session('code')) {
+
             return redirect('admin/login')->with('errors', '验证码错误')->withInput();
         }
         //3.1 查看用户名是否存在
@@ -75,12 +106,11 @@ class LoginController extends Controller
             return redirect('admin/login')->with('errors', '密码错误')->withInput();
         }
     //4 把用户登录信息存入session里面
-//        $user = $user->toArray();
+
         session(['user'=>$user]);
 
+       return redirect('admin/index');
 
-
-      return redirect('admin/index');
 
 
     }

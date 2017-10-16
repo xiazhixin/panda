@@ -113,3 +113,4 @@ Route::get('/', function () {
 
         //轮播图片地址写入路由
         Route::post('/admin/but','Admin\LunboController@but');
+

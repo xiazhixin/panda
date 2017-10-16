@@ -515,6 +515,7 @@
             }
             
             // first index: clean and copy data
+
             for (i = 0; i < series.length; ++i) {
                 s = series[i];
 
