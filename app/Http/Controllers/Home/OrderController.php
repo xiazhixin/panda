@@ -18,13 +18,17 @@ class OrderController extends Controller
     public function index()
     {
 
-        //查询出用户对应的所有订单
-
+        //判断是否登录
+        if(empty(session('user'))){
+            return view("home.login");
+        }
+        //查询出与用户相对应得订单
+        $id = session('user')->id;
         $orders = DB::table('shop_orders')
             ->leftJoin('users','shop_orders.uid','=','users.uid')
             ->leftJoin('shop_detail','shop_orders.oid','=','shop_detail.oid')
             ->leftJoin('shop_goods','shop_detail.gid','=','shop_goods.gid')
-            ->where('users.uid','1')
+            ->where('users.uid',$id)
             ->get();
 //        dd($orders);
 

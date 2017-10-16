@@ -32,16 +32,17 @@ class LoginController extends Controller
     public function doregister(Request $request)
     {
 
-           $input['uname']=$request['user'][0];
-           $input['upassword']=$request['user'][1];
-          $input['tel']=$request['user'][2];
-           $input['email']=$request['user'][3];
-              $regtime=time();
-            $input['regtime']="{$regtime}";
+
+          $input['uname']=$request['user'][0];
+          $input['upassword']=$request['user'][1];
+         $input['tel']=$request['user'][2];
+          $input['email']=$request['user'][3];
+             $regtime=time();
+           $input['regtime']="{$regtime}";
         //hash加密
-        $input['upassword'] = Hash::make($input['upassword']);
-//        dd($input);
-          $re = HomeUser::create($input);
+       $input['upassword'] = Hash::make($input['upassword']);
+//     dd($input);
+     $re = HomeUser::create($input);
 
     }
         //接收前台注册用户是否存在

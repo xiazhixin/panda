@@ -30,8 +30,14 @@
 						<ul class="message-l">
 							<div class="topMessage">
 								<div class="menu-hd">
-									<a href="#" target="_top" class="h">亲，请登录</a>
-									<a href="#" target="_top">免费注册</a>
+									@if(session('user'))
+										<a href="#" target="_top" class="h" >你好!{{session('user')['uname']}}</a>
+										<a href="outlog" target="_top" >退出登录</a>
+									@else
+										<a href="{{url('home/login')}}" target="_top" class="h" >亲，请登录</a>
+										<a href="{{url('home/register1')}}" target="_top">免费注册</a>
+
+									@endif
 								</div>
 							</div>
 						</ul>
@@ -41,6 +47,9 @@
 							</div>
 							<div class="topMessage my-shangcheng">
 								<div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+							</div>
+							<div class="topMessage my-shangcheng">
+								<div class="menu-hd MyShangcheng"><a href="{{url('home/order')}}" target="_top">我的订单</a></div>
 							</div>
 							<div class="topMessage mini-cart">
 								<div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>

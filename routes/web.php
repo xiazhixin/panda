@@ -88,7 +88,7 @@ Route::get('/', function () {
         //前台注册
         Route::get('/home/register1', 'Home\LoginController@register1');
         //前台执行注册路由
-        Route::post('/home/doregister/', 'Home\LoginController@doregister');
+        Route::post('/home/doregister', 'Home\LoginController@doregister');
         //前台登录
         Route::post('/home/dologin', 'Home\LoginController@dologin');
         //前台验证码

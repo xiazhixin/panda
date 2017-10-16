@@ -27,8 +27,8 @@
 			<div class="topMessage">
 				<div class="menu-hd">
 					@if(session('user'))
-						<a href="#" target="_top" class="h" style="color:blue">你好{{session('user')['uname']}}</a>
-						<a href="outlog" target="_top" style="color:blue">退出登录</a>
+						<a href="#" target="_top" class="h" >你好{{session('user')['uname']}}</a>
+						<a href="outlog" target="_top" >退出登录</a>
 					@else
 					<a href="{{url('home/login')}}" target="_top" class="h" >亲，请登录</a>
 					<a href="{{url('home/register1')}}" target="_top">免费注册</a>
