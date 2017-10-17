@@ -11,7 +11,7 @@
             @foreach($orders as $k=>$v)
             <div class="panel-body">
 
-                <form method="post" class="form-horizontal tasi-form" action="{{url('admin/order/'.$v->uid)}}">
+                <form method="post" class="form-horizontal tasi-form" action="{{url('admin/order/'.$v->id)}}">
                     <input name="_method" value="put" type="hidden">
                     {{csrf_field()}}
                     <div class="form-group">

@@ -96,8 +96,12 @@
 
 						<div class="comment-main">
 							@foreach($com as $k=>$v)
-							<form action="{{url('home/comment/')}}" method="post"></form>
-
+							<form action="{{url('home/comment/')}}" method="post">
+								{{csrf_field()}}
+								<input type="hidden" name="gid" value="{{$v->gid}}">
+								<input type="hidden" name="uid" value="{{$v->uid}}">
+								<input type="hidden" name="oid" value="{{$v->oid}}">
+								<input type="hidden" name="gname" value="{{$v->gname}}">
 							<div class="comment-list">
 								<div class="item-pic">
 									<a href="#" class="J_MakePoint">
@@ -108,9 +112,7 @@
 								<div class="item-title">
 
 									<div class="item-name">
-										<a href="#">
-											<p class="item-basic-info">{{$v->gname}}</p>
-										</a>
+											<span class="item-basic-info" >{{$v->gname}}</span>
 									</div>
 									<div class="item-info">
 
@@ -132,8 +134,9 @@
 							</div>
 
 								<div class="info-btn">
-									<div class="am-btn am-btn-danger">发表评论</div>
+									<button class="am-btn am-btn-danger">发表评论</button>
 								</div>
+							</form>
 							@endforeach
 					<script type="text/javascript">
 						$(document).ready(function() {

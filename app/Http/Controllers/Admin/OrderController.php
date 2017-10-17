@@ -70,16 +70,19 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
+        //查询出商品表,订单表,订单详情表,地址表中相关联的数据
         $orders = DB::table('shop_orders')
             ->leftJoin('shop_delivery','shop_orders.uid','=','shop_delivery.uid')
             ->leftJoin('shop_detail','shop_orders.oid','=','shop_detail.oid')
             ->leftJoin('shop_goods','shop_detail.gid','=','shop_goods.gid')
+            ->select(
+                'shop_orders.*','shop_delivery.*','shop_goods.gid',
+                'shop_goods.gname','shop_detail.*'
+            )
             ->where('shop_orders.oid',$id)
             ->get();
 //        dd($orders);
 
-//        $goods = Goods::all();
-//        dd($goods);
 
         return view('admin.order.edit',compact('orders'));
     }
@@ -93,10 +96,11 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //获取要修改的数据
         $res = $request->except('_token','_method','oid','ocnt','ormd');
-//        dd($res);
+        //获取修改数据的id
         $delivery = Delivery::find($id);
-
+        //修改
         $check = $delivery->update($res);
         if ($check) {
             return redirect('admin/order');

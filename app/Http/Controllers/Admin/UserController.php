@@ -128,7 +128,7 @@ class UserController extends Controller
 
 //             return '成功';
 
-            return redirect('admin/userindex')->with('msg','用户添加成功');
+            return redirect('admin/user/')->with('msg','用户添加成功');
         } else {
 
             return redirect('/admin/user/create')->with('msg','用户添加失败');

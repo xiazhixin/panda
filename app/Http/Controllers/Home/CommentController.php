@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Http\Model\Comment;
+use App\Http\Model\Order;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -36,7 +38,20 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       //获取订单号
+        $input=[];
+        $input['oid']=$request->input('oid');
+        //获取评论内容
+       $comment = $request->except('_token','oid');
+       //dd($comment);
+       $com = Comment::create($comment);
+
+       //如果修改成功则同时修改订单中的状态
+        if($com){
+            Order::where('oid',$input['oid'])->update(['ostatus' => 4]);
+            return back()->with('err','评论成功！');
+        }
+
     }
 
     /**
