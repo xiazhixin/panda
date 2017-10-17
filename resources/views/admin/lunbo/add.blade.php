@@ -53,7 +53,7 @@
 
                                   <div class="form-group">
                                       <div class="col-lg-offset-2 col-lg-10">
-                                          <button class="btn btn-danger" type="submit" onclick="onbut();">提交&注册</button>
+                                          <button class="btn btn-danger" type="submit" onclick="onbut();">上传</button>
 
                                       </div>
                                   </div>

@@ -155,7 +155,7 @@ Route::post('/admin/dologin/', 'Admin\LoginController@dologin');
         Route::get('/home/address/{id}','Home\AddressController@del');
         //修改地址
         Route::get('/home/address/{id}/edit','Home\AddressController@edit');
-        //新增收货地址
-        Route::get('/home/address/create','Home\AddressController@create');
+        //保存修改地址
+        Route::post('/home/address/update/{id}','Home\AddressController@update');
         //保存新增收货地址
-        Route::post('/home/address/store/{id}','Home\AddressController@store');
+        Route::post('/home/address/store','Home\AddressController@store');

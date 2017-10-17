@@ -9,7 +9,6 @@
 
 		<link href="{{asset('centerstyle/css/admin.css')}}" rel="stylesheet" type="text/css">
 		<link href="{{asset('centerstyle/css/amazeui.css')}}" rel="stylesheet" type="text/css">
-
 		<link href="{{asset('centerstyle/css/personal.css')}}" rel="stylesheet" type="text/css">
 		<link href="{{asset('centerstyle/css/addstyle.css')}}" rel="stylesheet" type="text/css">
 		<script src="{{asset('centerstyle/js/jquery.min.js')}}" type="text/javascript"></script>
@@ -63,9 +62,9 @@
 
 							<div class="search-bar pr">
 								<a name="index_none_header_sysc" href="#"></a>
-								<form>
-									<input id="searchInput" name="index_none_header_sysc" type="text" placeholder="搜索" autocomplete="off">
-									<input id="ai-topsearch" class="submit am-btn" value="搜索" index="1" type="submit">
+								<form action="{{url('home/list')}}" method="get">
+									<input id="searchInput" name="keywords" type="text" placeholder="关键字" autocomplete="on">
+									<input id="ai-topsearch" class="submit am-btn" value="搜索"  type="submit">
 								</form>
 							</div>
 						</div>
@@ -107,11 +106,11 @@
 						<hr/>
                         <ul class="am-avg-sm-1 am-avg-md-3 am-thumbnails">
                         @foreach($address as $k=>$v)
-                        @if($v->status==1)
-							<li class="user-addresslist defaultAddr">
-                        @else
-                            <li class="user-addresslist">
-                        @endif
+							@if($v->status==1)
+								<li class="user-addresslist defaultAddr">
+							@else
+								<li class="user-addresslist">
+							@endif
 								<span class="new-option-r default"><i class="am-icon-check-circle"></i><a href="javascript:void(0);" onclick="javascript:window.location.href='{{ url('/home/address/status') }}/{{ $v->id }}'" >默认地址</a></span>
 								<p class="new-tit new-p-re">
 									<span class="new-txt">{{$v->rec}}</span>

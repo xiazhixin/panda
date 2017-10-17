@@ -9,7 +9,6 @@
 
 		<link href="{{asset('centerstyle/css/admin.css')}}" rel="stylesheet" type="text/css">
 		<link href="{{asset('centerstyle/css/amazeui.css')}}" rel="stylesheet" type="text/css">
-
 		<link href="{{asset('centerstyle/css/personal.css')}}" rel="stylesheet" type="text/css">
 		<link href="{{asset('centerstyle/css/infstyle.css')}}" rel="stylesheet" type="text/css">
 		<script src="{{asset('centerstyle/js/jquery.min.js')}}" type="text/javascript"></script>

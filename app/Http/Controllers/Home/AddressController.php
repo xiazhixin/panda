@@ -6,6 +6,7 @@ use App\Http\Model\Delivery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class AddressController extends Controller
 {
@@ -23,10 +24,10 @@ class AddressController extends Controller
     public function status($id)
     {
         //修改默认地址
-        $res = Delivery::where('id',$id)->update(['status'=>0]);
+        $res = Delivery::where('id',$id)->update(['status'=>1]);
         $uid = session('user')->uid;
         if(!empty($res)) {
-            Delivery::where([['uid',$uid],['id','!=',$id]])->update(['status' => 1]);
+            Delivery::where([['uid',$uid],['id','!=',$id]])->update(['status' => 0]);
             return back()->with('errors','默认地址已设置！');
         }else{
             return back()->with('errors','设置失败！');
@@ -46,14 +47,58 @@ class AddressController extends Controller
     {
         //修改地址
         $addr = Delivery::where('id',$id)->get();
-
+//        dd($addr);
         return view('home.address.edit',compact('addr'));
     }
-//    public function store(Request $request,$id)
-//    {
-//        //保存新增收货人
-//        $input = $request ->except('_token');
-////        $input
-//        dd($input);
-//    }
+    public function update(Request $request,$id)
+    {
+        //保存修改的收货人
+        $input = $request ->except('_token');
+        $rule=[
+            'tel'=>'required',
+        ];
+        $msg = [
+            'tel.required'=>'电话号码必须输入!',
+        ];
+        //手动验证表单
+        $validator = Validator::make($request->all(),$rule,$msg);
+        if ($validator->fails()) {
+            return redirect('home/address/'.$id.'/edit')
+                ->withErrors($validator)
+                ->withInput();
+        }
+        //修改
+        $oldrec = Delivery::find($id);
+        $res = $oldrec -> update($input);
+        if($res){
+            return redirect('home/address');
+        }else{
+            return back()->with('errors','修改失败');
+        }
+    }
+    public function store(Request $request)
+    {
+        //保存新增加的收货人
+        $input = $request ->except('_token');
+        $rule=[
+            'tel'=>'required',
+        ];
+        $msg = [
+            'tel.required'=>'电话号码必须输入!',
+        ];
+        //手动验证表单
+        $validator = Validator::make($request->all(),$rule,$msg);
+        if ($validator->fails()) {
+            return redirect('home/address')
+                ->withErrors($validator)
+                ->withInput();
+        }
+        $res = Delivery::create($input);
+        if($res){
+            return redirect('home/address');
+        }else{
+            return back()->with('errors','添加失败');
+        }
+    }
+
 }

@@ -39,7 +39,7 @@
                         <td><a href="#">{{$v->lid}}</a></td>
                         <td class="hidden-phone">{{$v->lname}}</td>
 
-                        <td class="hidden-phone"><img src="{{$v->art_thumb}}" alt=""></td>
+                        <td class="hidden-phone"><img src="{{$v->art_thumb}}" width="100px" alt=""></td>
                         <td>{{date("Y-m-d H:i:sa", $v->ltime)}}</td>
                         <td>
                             <a href="{{url('admin/lunbo/'.$v->lid.'/edit')}}"> <button class="btn btn-primary btn-xs"><i class="icon-pencil"></i></button></a>

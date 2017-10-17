@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Home;
 
+use App\Http\Model\Cate;
 use App\http\model\Goods;
 use App\http\model\Tui;
 use Illuminate\Http\Request;
@@ -14,13 +15,15 @@ class IndexController extends Controller
     public function index()
     {
         //商品
-        $goods = Goods::orderBy('gid','desc')->paginate(20);
-//        dd($goods);
+        $goods = Goods::all();
         //推荐商品(只有三个推荐位)
         $tuis = Tui::all();
         //轮播图显示
         $lunbo=Lunbo::all();
-        //其他网站配置需要分配
-        return view('home.index',compact('goods','tuis','lunbo'));
+        //类别
+        $cate = new Cate();
+        $cates = $cate -> tree();
+//        dd($cates);
+        return view('home.index',compact('goods','tuis','lunbo','cates'));
     }
 }

@@ -27,8 +27,8 @@
 			<div class="topMessage">
 				<div class="menu-hd">
 					@if(session('user'))
-						<a href="#" target="_top" class="h" >你好{{session('user')['uname']}}</a>
-						<a href="outlog" target="_top" >退出登录</a>
+						<a href="#" target="_top" class="h" >你好,{{session('user')['uname']}}!</a>
+						<a href="{{url('home/outlog')}}" target="_top" >退出登录</a>
 					@else
 					<a href="{{url('home/login')}}" target="_top" class="h" >亲，请登录</a>
 					<a href="{{url('home/register1')}}" target="_top">免费注册</a>
@@ -59,7 +59,7 @@
 	<div class="nav white">
 		<div class="logo"><img src="../images/logo.png" /></div>
 		<div class="logoBig">
-			<li><img src="../images/logobig.png" /></li>
+			<li><img src="{{asset('home/images/logop.jpg') }}" /></li>
 		</div>
 
 		<div class="search-bar pr">
@@ -74,10 +74,6 @@
 
 	<div class="clear"></div>
 </div>
-
-@section('content')
-@endsection
-
 			<div class="banner">
                       <!--轮播 -->
 						<div class="am-slider am-slider-default scoll" data-am-flexslider id="demo-slider-0">
@@ -115,165 +111,32 @@
 
 									<div class="category">
 										<ul class="category-list" id="js_climit_li">
-											<li class="appliance js_toggle relative first">
+											@foreach($cates as $v)
+												<li class="appliance js_toggle relative">
 												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../images/cake.png"></i><a class="ml-22" title="点心">点心/蛋糕</a></h3>
+													<h3 class="category-name b-category-name"><i><img src="{{asset('home//images/cookies.png')}}"></i><a class="ml-22" title="">{{$v->cate_name}}</a></h3>
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
 														<div class="area-bg">
 															<div class="menu-srot">
 																<div class="sort-side">
-																	<dl class="dl-sort">
-																		<dt><span title="蛋糕">蛋糕</span></dt>
-																		<dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
-																		<dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
-																		<dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-																		<dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-																		<dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
-																		<dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
-																		<dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
-																		<dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
-																		<dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="蛋糕">点心</span></dt>
-																		<dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
-																		<dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
-																		<dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-																		<dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-																		<dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
-																		<dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
-																		<dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
-																		<dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
-																		<dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
-																	</dl>
-
-																</div>
-																<div class="brand-side">
-																	<dl class="dl-sort"><dt><span>实力商家</span></dt>
-																		<dd><a rel="nofollow" title="呵官方旗舰店" target="_blank" href="#" rel="nofollow"><span  class="red" >呵官方旗舰店</span></a></dd>
-																		<dd><a rel="nofollow" title="格瑞旗舰店" target="_blank" href="#" rel="nofollow"><span >格瑞旗舰店</span></a></dd>
-																		<dd><a rel="nofollow" title="飞彦大厂直供" target="_blank" href="#" rel="nofollow"><span  class="red" >飞彦大厂直供</span></a></dd>
-																		<dd><a rel="nofollow" title="红e·艾菲妮" target="_blank" href="#" rel="nofollow"><span >红e·艾菲妮</span></a></dd>
-																		<dd><a rel="nofollow" title="本真旗舰店" target="_blank" href="#" rel="nofollow"><span  class="red" >本真旗舰店</span></a></dd>
-																		<dd><a rel="nofollow" title="杭派女装批发网" target="_blank" href="#" rel="nofollow"><span  class="red" >杭派女装批发网</span></a></dd>
-																	</dl>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-											<b class="arrow"></b>
-											</li>
-											<li class="appliance js_toggle relative">
-												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../images/cookies.png"></i><a class="ml-22" title="饼干、膨化">饼干/膨化</a></h3>
-													<em>&gt;</em></div>
-												<div class="menu-item menu-in top">
-													<div class="area-in">
-														<div class="area-bg">
-															<div class="menu-srot">
-																<div class="sort-side">
-																	<dl class="dl-sort">
-																		<dt><span title="饼干">饼干</span></dt>
-																		<dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
-																		<dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
-																		<dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-																		<dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-																		<dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="薯片">薯片</span></dt>
-																		<dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
-																		<dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
-																		<dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-																		<dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-																		<dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
-																		<dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
-																		<dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
-																		<dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
-																		<dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="蛋糕">虾条</span></dt>
-																		<dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
-																		<dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
-																		<dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-																		<dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-																		<dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
-																		<dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
-																		<dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
-																		<dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
-																		<dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
-																	</dl>
-																</div>
-																<div class="brand-side">
-																	<dl class="dl-sort"><dt><span>实力商家</span></dt>
-																		<dd><a rel="nofollow" title="YYKCLOT" target="_blank" href="#" rel="nofollow"><span  class ="red" >YYKCLOT</span></a></dd>
-																		<dd><a rel="nofollow" title="池氏品牌男装" target="_blank" href="#" rel="nofollow"><span  class ="red" >池氏品牌男装</span></a></dd>
-																		<dd><a rel="nofollow" title="男装日志" target="_blank" href="#" rel="nofollow"><span >男装日志</span></a></dd>
-																		<dd><a rel="nofollow" title="索比诺官方旗舰店" target="_blank" href="#" rel="nofollow"><span >索比诺官方旗舰店</span></a></dd>
-																		<dd><a rel="nofollow" title="onTTno傲徒" target="_blank" href="#" rel="nofollow"><span  class ="red" >onTTno傲徒</span></a></dd>
-																		<dd><a rel="nofollow" title="玛狮路男装旗舰店" target="_blank" href="#" rel="nofollow"><span >玛狮路男装旗舰店</span></a></dd>
-																		<dd><a rel="nofollow" title="劳威特品牌男装" target="_blank" href="#" rel="nofollow"><span >劳威特品牌男装</span></a></dd>
-																		<dd><a rel="nofollow" title="卡斯郎世家批发城" target="_blank" href="#" rel="nofollow"><span  class ="red" >卡斯郎世家批发城</span></a></dd>
-																	</dl>
-																</div>
+																	{{--@if(!empty($subtrre))--}}
+																		{{--@foreach($subtree as $vv)--}}
+																			{{--<dl class="dl-sort">--}}
+																				{{--<dt><span title="">{{$vv->cate_name}}</span></dt>--}}
+																				{{--if(!empty($vv))--}}
+																				{{--<dd><a title="" href="#"><span>蒸蛋糕</span></a></dd>--}}
+																			{{--</dl>--}}
+																		{{--@endforeach--}}
+																	{{--@endif--}}
 															</div>
 														</div>
 													</div>
 												</div>
                                              <b class="arrow"></b>
 											</li>
-											<li class="appliance js_toggle relative last">
-												<div class="category-info">
-													<h3 class="category-name b-category-name"><i><img src="../images/package.png"></i><a class="ml-22" title="品牌、礼包">品牌/礼包</a></h3>
-													<em>&gt;</em></div>
-												<div class="menu-item menu-in top">
-													<div class="area-in">
-														<div class="area-bg">
-															<div class="menu-srot">
-																<div class="sort-side">
-																	<dl class="dl-sort">
-																		<dt><span title="大包装">大包装</span></dt>
-																		<dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
-																		<dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
-																		<dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-																		<dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-																		<dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
-																		<dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
-																		<dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
-																		<dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
-																		<dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
-																	</dl>
-																	<dl class="dl-sort">
-																		<dt><span title="两件套">两件套</span></dt>
-																		<dd><a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a></dd>
-																		<dd><a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a></dd>
-																		<dd><a title="瑞士卷" href="#"><span>瑞士卷</span></a></dd>
-																		<dd><a title="软面包" href="#"><span>软面包</span></a></dd>
-																		<dd><a title="马卡龙" href="#"><span>马卡龙</span></a></dd>
-																		<dd><a title="千层饼" href="#"><span>千层饼</span></a></dd>
-																		<dd><a title="甜甜圈" href="#"><span>甜甜圈</span></a></dd>
-																		<dd><a title="蒸三明治" href="#"><span>蒸三明治</span></a></dd>
-																		<dd><a title="铜锣烧" href="#"><span>铜锣烧</span></a></dd>
-																	</dl>
-																</div>
-																<div class="brand-side">
-																	<dl class="dl-sort"><dt><span>实力商家</span></dt>
-																		<dd><a title="琳琅鞋业" target="_blank" href="#" rel="nofollow"><span >琳琅鞋业</span></a></dd>
-																		<dd><a title="宏利鞋业" target="_blank" href="#" rel="nofollow"><span >宏利鞋业</span></a></dd>
-																		<dd><a title="比爱靓点鞋业" target="_blank" href="#" rel="nofollow"><span >比爱靓点鞋业</span></a></dd>
-																		<dd><a title="浪人怪怪" target="_blank" href="#" rel="nofollow"><span >浪人怪怪</span></a></dd>
-																	</dl>
-																</div>
-															</div>
-														</div>
-													</div>
-												</div>
-
-											</li>
+											@endforeach
 										</ul>
 									</div>
 								</div>
@@ -347,16 +210,21 @@
 						<div class="mod-vip">
 							<div class="m-baseinfo">
 								<a href="../person/index.html">
-									<img src="../images/getAvatar.do.jpg">
+									<img src="{{asset('home/images/getAvatar.do.jpg')}}">
 								</a>
 								<em>
 									Hi,<span class="s-name">小叮当</span>
-									<a href="#"><p>点击更多优惠活动</p></a>
+									<a href="{{url('home/list')}}"><p>点击更多优惠活动</p></a>
 								</em>
 							</div>
 							<div class="member-logout">
-								<a class="am-btn-warning btn" href="login.html">登录</a>
-								<a class="am-btn-warning btn" href="register.html">注册</a>
+								@if(session('user'))
+									<a class="am-btn-warning btn" href="home/center" target="_top" class="h" >你好,{{session('user')['uname']}}!</a>
+									<a class="am-btn-warning btn" href="home/outlog" target="_top" >退出登录</a>
+								@else
+									<a class="am-btn-warning btn" href="{{url('home/login')}}" target="_top" class="h" >登录</a>
+									<a class="am-btn-warning btn" href="{{url('home/register1')}}" target="_top">免费注册</a>
+								@endif
 							</div>
 							<div class="member-login">
 								<a href="#"><strong>0</strong>待收货</a>
@@ -398,78 +266,25 @@
 				<div class="shopMain" id="shopmain">
 
 					<!--今日推荐 -->
-
 					<div class="am-g am-g-fixed recommendation">
 						<div class="clock am-u-sm-3" ">
-							<img src="../images/2016.png "></img>
+							<img src="{{asset('home/images/timg.jpg')}}">
 							<p>今日<br>推荐</p>
-						</div>
-					@foreach($tuis as $k => $v)
-						<div class="am-u-sm-4 am-u-lg-3 ">
-							<div class="info ">
-								<h3>{{$v['gname']}}</h3>
-								<h4>{{$v['keyword']}}</h4>
-							</div>
-							<div class="recommendationMain one">
-								<a href="introduction.html"><img src="{{asset($v['gpic'])}}"></img></a>
-							</div>
-						</div>
-					@endforeach
-
-
 					</div>
+							@foreach($tuis as $k => $v)
+								<div class="am-u-sm-4 am-u-lg-3 ">
+									<div class="info ">
+										<h3>{{$v['gname']}}</h3>
+										<h4>{{$v['keyword']}}</h4>
+									</div>
+									<div class="recommendationMain one">
+										<a href="introduction.html"><img src="{{asset($v['gpic'])}}"></img></a>
+									</div>
+								</div>
+							@endforeach
+				</div>
 					<div class="clear "></div>
-					<!--热门活动 -->
-
-					{{--<div class="am-container activity ">--}}
-						{{--<div class="shopTitle ">--}}
-							{{--<h4>活动</h4>--}}
-							{{--<h3>每期活动 优惠享不停 </h3>--}}
-							{{--<span class="more ">--}}
-                              {{--<a href="# ">全部活动<i class="am-icon-angle-right" style="padding-left:10px ;" ></i></a>--}}
-                        {{--</span>--}}
-						{{--</div>--}}
-					  {{--<div class="am-g am-g-fixed ">--}}
-						{{--<div class="am-u-sm-3 ">--}}
-							{{--<div class="icon-sale one "></div>--}}
-								{{--<h4>秒杀</h4>--}}
-							{{--<div class="activityMain ">--}}
-								{{--<img src="../images/activity1.jpg "></img>--}}
-							{{--</div>--}}
-
-						{{--</div>--}}
-
-						{{--<div class="am-u-sm-3 ">--}}
-						  {{--<div class="icon-sale two "></div>--}}
-							{{--<h4>特惠</h4>--}}
-							{{--<div class="activityMain ">--}}
-								{{--<img src="../images/activity2.jpg "></img>--}}
-							{{--</div>--}}
-
-						{{--</div>--}}
-
-						{{--<div class="am-u-sm-3 ">--}}
-							{{--<div class="icon-sale three "></div>--}}
-							{{--<h4>团购</h4>--}}
-							{{--<div class="activityMain ">--}}
-								{{--<img src="../images/activity3.jpg "></img>--}}
-							{{--</div>--}}
-
-						{{--</div>--}}
-
-						{{--<div class="am-u-sm-3 last ">--}}
-							{{--<div class="icon-sale "></div>--}}
-							{{--<h4>超值</h4>--}}
-							{{--<div class="activityMain ">--}}
-								{{--<img src="../images/activity.jpg "></img>--}}
-							{{--</div>--}}
-
-						{{--</div>--}}
-
-					  {{--</div>--}}
-                   {{--</div>--}}
 					<div class="clear "></div>
-
 
                     <div id="f1">
 					<!--甜点-->
@@ -477,16 +292,16 @@
 						<div class="shopTitle ">
 							{{--<h4>甜品</h4>--}}
 							<h3>每一件商品都有一个属于他自己的故事</h3>
-							<div class="today-brands ">
-								<a href="# ">桂花糕</a>
-								<a href="# ">奶皮酥</a>
-								<a href="# ">栗子糕 </a>
-								<a href="# ">马卡龙</a>
-								<a href="# ">铜锣烧</a>
-								<a href="# ">豌豆黄</a>
-							</div>
+							{{--<div class="today-brands ">--}}
+								{{--<a href="# ">桂花糕</a>--}}
+								{{--<a href="# ">奶皮酥</a>--}}
+								{{--<a href="# ">栗子糕 </a>--}}
+								{{--<a href="# ">马卡龙</a>--}}
+								{{--<a href="# ">铜锣烧</a>--}}
+								{{--<a href="# ">豌豆黄</a>--}}
+							{{--</div>--}}
 							<span class="more ">
-                    <a href="# ">更多美味<i class="am-icon-angle-right" style="padding-left:10px ;" ></i></a>
+                    <a href="#">更多魅力<i class="am-icon-angle-right" style="padding-left:10px ;" ></i></a>
                         </span>
 						</div>
 					</div>
@@ -494,147 +309,24 @@
 					<div class="am-g am-g-fixed floodFour">
 
 						{{--这里遍历商品--}}
-						{{--@foreach($goods as $k=>$v)--}}
+						@foreach($goods as $k=>$v)
 							<div class="am-u-sm-7 am-u-md-5 text-two ">
 								<div class="outer-con ">
 									<div class="title ">
-										雪之恋和风大福
+										{{$v->gname}}
 									</div>
 									<div class="sub-title ">
-										¥13.8
+										{{$v->price}}
 									</div>
 									{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
 								</div>
-								<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
+								<a href="home/detail/{{$v->gid}}"><img src="{{$v->gpic}}" /></a>
 							</div>
-						<div class="am-u-sm-7 am-u-md-5 text-two ">
-							<div class="outer-con ">
-								<div class="title ">
-									雪之恋和风大福
-								</div>
-								<div class="sub-title ">
-									¥13.8
-								</div>
-								{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
-							</div>
-							<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
-						</div>
-						<div class="am-u-sm-7 am-u-md-5 text-two ">
-							<div class="outer-con ">
-								<div class="title ">
-									雪之恋和风大福
-								</div>
-								<div class="sub-title ">
-									¥13.8
-								</div>
-								{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
-							</div>
-							<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
-						</div>
-						<div class="am-u-sm-7 am-u-md-5 text-two ">
-							<div class="outer-con ">
-								<div class="title ">
-									雪之恋和风大福
-								</div>
-								<div class="sub-title ">
-									¥13.8
-								</div>
-								{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
-							</div>
-							<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
-						</div>
-						<div class="am-u-sm-7 am-u-md-5 text-two ">
-							<div class="outer-con ">
-								<div class="title ">
-									雪之恋和风大福
-								</div>
-								<div class="sub-title ">
-									¥13.8
-								</div>
-								{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
-							</div>
-							<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
-						</div>
-						<div class="am-u-sm-7 am-u-md-5 text-two ">
-							<div class="outer-con ">
-								<div class="title ">
-									雪之恋和风大福
-								</div>
-								<div class="sub-title ">
-									¥13.8
-								</div>
-								{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
-							</div>
-							<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
-						</div>
-						<div class="am-u-sm-7 am-u-md-5 text-two ">
-							<div class="outer-con ">
-								<div class="title ">
-									雪之恋和风大福
-								</div>
-								<div class="sub-title ">
-									¥13.8
-								</div>
-								{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
-							</div>
-							<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
-						</div>
-						<div class="am-u-sm-7 am-u-md-5 text-two ">
-							<div class="outer-con ">
-								<div class="title ">
-									雪之恋和风大福
-								</div>
-								<div class="sub-title ">
-									¥13.8
-								</div>
-								{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
-							</div>
-							<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
-						</div>
-						<div class="am-u-sm-7 am-u-md-5 text-two ">
-							<div class="outer-con ">
-								<div class="title ">
-									雪之恋和风大福
-								</div>
-								<div class="sub-title ">
-									¥13.8
-								</div>
-								{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
-							</div>
-							<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
-						</div>
-						<div class="am-u-sm-7 am-u-md-5 text-two ">
-							<div class="outer-con ">
-								<div class="title ">
-									雪之恋和风大福
-								</div>
-								<div class="sub-title ">
-									¥13.8
-								</div>
-								{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
-							</div>
-							<a href="# "><img src="{{asset('home/images/2.jpg')}}" /></a>
-						</div>
-
-
-
-
-
-
-
-
-
+						@endforeach
 
 					</div>
                  <div class="clear "></div>
                  </div>
-
-
-
-
-
-
-
 
    					{{--这是脚注部分--}}
 					<div class="footer ">

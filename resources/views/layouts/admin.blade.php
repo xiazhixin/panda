@@ -269,7 +269,7 @@
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <img alt="" src="{{asset('admin/style/img/avatar1_small.jpg')}}">
-                            <span class="username">{{session('user')->aname}}</span>
+                            <span class="username">{{session('auser')->aname}}</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">

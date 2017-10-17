@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
@@ -11,7 +10,6 @@
 		<link href="{{asset('centerstyle/css/amazeui.css')}}" rel="stylesheet" type="text/css">
 		<link href="{{asset('centerstyle/css/personal.css')}}" rel="stylesheet" type="text/css">
 		<link href="{{asset('centerstyle/css/systyle.css')}}" rel="stylesheet" type="text/css">
-        
 		<script src="{{asset('centerstyle/js/jquery.min.js')}}" type="text/javascript"></script>
 		<script src="{{asset('centerstyle/layer/layer.js')}}" type="text/javascript"></script>
         <script src="{{asset('centerstyle/js/jquery.min.js')}}"></script>
@@ -188,16 +186,16 @@
 								</ul>
 							</div>
 							<!--九宫格-->
-							
+
 							<!--物流 -->
 							<div class="m-logistics">
 
-								
+
 
 							</div>
 
 							<!--收藏夹 -->
-							
+
 
 						</div>
 					</div>
@@ -218,11 +216,11 @@
 							</div>
 						</div>
 						<!--新品 -->
-						
+
 
 					</div>
 				</div>
-                
+
 				<!--底部-->
 				<div class="footer">
 					<div class="footer-hd">
@@ -299,8 +297,8 @@
 		<div class="navCir">
 			<li><a href=""><i class="am-icon-home "></i>首页</a></li>
 			<li><a href=""><i class="am-icon-list"></i>分类</a></li>
-			<li><a href=""><i class="am-icon-shopping-basket"></i>购物车</a></li>	
-			<li class="active"><a href=""><i class="am-icon-user"></i>我的</a></li>					
+			<li><a href=""><i class="am-icon-shopping-basket"></i>购物车</a></li>
+			<li class="active"><a href=""><i class="am-icon-user"></i>我的</a></li>
 		</div>
 	</body>
 
