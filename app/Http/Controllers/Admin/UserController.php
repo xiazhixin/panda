@@ -21,7 +21,6 @@ class UserController extends Controller
     {
 //        $input=User::get();//paginate(5);
         $input= $request->input('keywords') ? $request->input('keywords'): '';
-
         $users=User::orderBy('aid','asc')->where('aname','like','%'.$input.'%')->paginate(5);
         $th=['1'=>'普通管理员','2'=>'高级管理员','3'=>'超级管理员'];
         return view('admin.user.index',compact('input','users','th'));
@@ -35,6 +34,10 @@ class UserController extends Controller
 //       dd($input);
         $tt=['0'=>'正常状态','1'=>'冻结状态'];
       return view('admin/user/ulist',compact('input','tt'));
+        $users=User::orderBy('aid','asc')->where('aname','like','%'.$input.'%')->paginate(5);
+        $th=['1'=>'普通管理员','2'=>'高级管理员','3'=>'超级管理员'];
+        return view('admin.user.index',compact('input','users','th'));
+//       return view('admin/user/index',compact('input','th'));
     }
     //显示前台用户详情 只能修改 状态 数据 0  、1
     public function uupdat($id)
@@ -60,7 +63,6 @@ class UserController extends Controller
 //        dd($re);
 
         if ($re){
-
             return redirect('admin/uindex');
         } else {
             return redirect('admin/uupdat/'.$id)->with('msg','用户修改失败');
@@ -68,28 +70,7 @@ class UserController extends Controller
   
     }
 
-    public function upget(Request $request,$id)
-    {
-        $input=$request->except('_token');
-//       dd($input);
-
-        //  2 找到要修改的用户记录，用提交过来的修改值修改
-        $user = HomeUser::find($id);
-
-        $user->uname = $input['uname'];
-        $user->email = $input['email'];
-        $user->tel = $input['tel'];
-        $user->status = $input['status'];
-        $re = $user->save();
-//        dd($re);
-
-        if ($re){
-
-            return redirect('admin/uindex');
-        } else {
-            return redirect('admin/uupdat/'.$id)->with('msg','用户修改失败');
-        };
-    }
+   
     /**
      * Show the form for creating a new resource.
      *
@@ -151,7 +132,6 @@ class UserController extends Controller
         } else {
 
             return redirect('/admin/user/create')->with('msg','用户添加失败');
-
 
         }
     }
@@ -234,7 +214,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-
         //查询要删除的记录的模型
         $user = User::find($id);
         //执行删除操作

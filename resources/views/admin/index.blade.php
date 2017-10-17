@@ -183,6 +183,5 @@
                       <!--work progress end-->
                   </div>
               </div>
-
   </div>
 @endsection

@@ -46,14 +46,11 @@ class LunboController extends Controller
 //        //实现     获取上传的文件对象
       $file = Input::file('file_upload');
 
-
         //判断文件是否有效
         if($file->isValid()) {
             $entension = $file->getClientOriginalExtension();//上传文件的后缀名
             $newName = date('YmdHis') . mt_rand(1000, 9999) . '.' . $entension;
             //             1将文件上传到本地服务器
-         //  $path = $file->move(public_path().'/uploads',$newName);
-
             //          2  将文件上传到OSS
             $pic = $file->getRealPath();
             //            阿里OSS上传

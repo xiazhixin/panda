@@ -45,7 +45,6 @@
                         <td>{{$tt[$v->status]}}</td>
                         <td>
                             <a href="{{url('admin/uupdat'.'/'.$v->uid )}}"> <button class="btn btn-primary btn-xs"><i class="icon-pencil"></i></button></a>
-
                         </td>
                     </tr>
                      @endforeach

@@ -9,7 +9,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-
 class LoginController extends Controller
 {
     //前台登录登录
@@ -29,6 +28,7 @@ class LoginController extends Controller
     {
         return view('home/register1');
     }
+
     //发送手机验证码
     public function sendcode1(Request $request)
     {
@@ -55,10 +55,10 @@ class LoginController extends Controller
     }
 
     
+
     //注册提交来的信息
     public function doregister(Request $request)
     {
-
            $input['uname']=$request['user'][0];
            $input['upassword']=$request['user'][1];
           $input['tel']=$request['user'][2];
@@ -69,7 +69,6 @@ class LoginController extends Controller
         $input['upassword'] = Hash::make($input['upassword']);
 //        dd($input);
           $re = HomeUser::create($input);
-
 
     }
         //接收前台注册用户是否存在
@@ -82,7 +81,6 @@ class LoginController extends Controller
         }else{
             return 0;
         }
-
 
     }
 

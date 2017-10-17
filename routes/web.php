@@ -44,6 +44,7 @@ Route::post('/admin/dologin/', 'Admin\LoginController@dologin');
     Route::resource('admin/tui','Admin\TuiController');
     //评论模块
     Route::resource('admin/comment','Admin\CommentController');
+
     //商品分类
     Route::resource('admin/cate','Admin\CateController');
     //添加子类
@@ -51,13 +52,19 @@ Route::post('/admin/dologin/', 'Admin\LoginController@dologin');
     //品牌管理
     Route::resource('admin/brand','Admin\BrandController');
 
+
+    //后台首页 登录显示路由
+    Route::get('/admin/login/', 'Admin\LoginController@login');
+
+    //登录提交路由
+    Route::post('/admin/dologin/', 'Admin\LoginController@dologin');
+
+
     //后台生成验证码
     Route::get('admin/yzm','Admin\LoginController@yzm');
     //验证码路由
     Route::get('/code/captcha/{tmp}', 'Home\LoginController@captcha');
     //登录
-
-    //后台首页
     Route::get('/admin/index', 'Admin\IndexController@index');
     //退出
     Route::get('/admin/logout', 'Admin\IndexController@logout');
@@ -111,11 +118,19 @@ Route::post('/admin/dologin/', 'Admin\LoginController@dologin');
         //前台退出
         Route::get('/home/outlog', 'Home\LoginController@outlog');
         //前台首页
-        Route::get('home/index', 'Home\IndexController@index');
+        Route::get('/', 'Home\IndexController@index');
         //订单页
         Route::resource('home/order', 'Home\OrderController');
         //商品列表
         Route::get('home/list','Home\GoodsController@list');
+        //商品详情
+        Route::get('home/detail/{id}','Home\GoodsController@detail');
+        //加入购物车
+        Route::get('home/cart/{id}','Home\GoodsController@cart');
+        //去购物车结算
+        Route::get('home/docart','Home\GoodsController@docart');
+        //删除商品
+        Route::get('home/delCartGood/{id}','Home\GoodsController@delCartGood');
          //轮播图路由
         Route::resource('/admin/lunbo','Admin\LunboController');
 
@@ -144,4 +159,3 @@ Route::post('/admin/dologin/', 'Admin\LoginController@dologin');
         Route::get('/home/address/create','Home\AddressController@create');
         //保存新增收货地址
         Route::post('/home/address/store/{id}','Home\AddressController@store');
-

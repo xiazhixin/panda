@@ -90,9 +90,10 @@
                       data: formData,
                       contentType: false,
                       processData: false,
-                      success: function(data) {
-                   $('#img1').attr('src','http://lamp189.oss-cn-shanghai.aliyuncs.com/'+data);
-                 //$('#img1').attr('src','http://xm-panda.oss-cn-beijing.aliyuncs.com/'+data);
+                      success: function(data){
+                   //$('#img1').attr('src','http://lamp189.oss-cn-shanghai.aliyuncs.com/'+data);
+                   $('#img1').attr('src','http://xm-panda.oss-cn-beijing.aliyuncs.com/'+data);
+
 //
                           $('#art_thumb').val(data);
 

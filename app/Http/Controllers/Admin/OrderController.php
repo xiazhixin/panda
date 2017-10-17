@@ -60,7 +60,6 @@ class OrderController extends Controller
             return back()->with('err','已确认！');
         }
         return back()->with('err','确认收货失败！');
-
     }
 
     /**
@@ -114,6 +113,5 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-
     }
 }

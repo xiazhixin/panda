@@ -10,6 +10,7 @@
 <script src="/home/regis/js/jquery-1.11.1.min.js"></script>
 <script src="/home/regis/js/register.js"></script>
 <script src="/home/layer/layer.js"></script>
+
 </head>
 <body class="bgf4">
 <div class="login-box f-mt10 f-pb50">
@@ -85,7 +86,19 @@
                             <label class="focus valid"></label>
                         </div>
                     </div>
+                    <div class="item col-xs-12">
+                        <span class="intelligent-label f-fl"><b class="ftx04">*</b>邮箱：</span>
+                        <div class="f-fl item-ifo">
+                            <input type="email"  name="email" id="password" maxlength="20" class="txt03 f-r3 required" tabindex="3" style="ime-mode:disabled;" onpaste="return  false" autocomplete="off" data-valid="isNonEmpty||between:emal" data-error="邮箱不能为空||邮箱必须长度带@位" />
+                            <span class="ie8 icon-close close hide" style="right:55px"></span>
+                            <span class="showpwd" data-eye="emali"></span>
+                            <label class="icon-sucessfill blank hide"></label>
+                            <label class="focus">邮箱英文（区分大小写）、数字、</label>
+                            <label class="focus valid"></label>
+                            <span class="clearfix"></span>
 
+                        </div>
+                    </div>
                     <div class="item col-xs-12">
                         <span class="intelligent-label f-fl"><b class="ftx04">*</b>验证码：</span>
                         <div class="f-fl item-ifo" style="width:280px;">
@@ -142,7 +155,6 @@
                     </div>
                 </div>
                 <div class="part3" style="display:none">
-
                     <div class="item col-xs-12">
                         <span class="intelligent-label f-fl"><b class="ftx04">*</b>邮箱：</span>
                         <div class="f-fl item-ifo">
@@ -153,7 +165,6 @@
                             <label class="focus">邮箱英文（区分大小写）、数字、</label>
                             <label class="focus valid"></label>
                             <span class="clearfix"></span>
-
                         </div>
                     </div>
 
@@ -183,6 +194,7 @@
     <center><a class="btn btn-blue btn-lg f-size12 b-b0 b-l0 b-t0 b-r0 f-pl50 f-pr50 f-r3" href="javascript:closeClause();">已阅读并同意此条款</a></center>
 </div>
 <script>
+<<<<<<< HEAD
         //手机短信验证码 发送验证
         function dome(){
             var phone = $('input[name=tel]').val();
@@ -190,6 +202,8 @@
                     console.log(data);
                 });
         }
+=======
+>>>>>>> 15adbe9e4530e28e44a17fd15222f9be6c6a501e
 
     $('input[name=uname]').focus(function(){
 
@@ -234,11 +248,19 @@ $(function(){
 		$(".part1").hide();
 		$(".part2").show();
 		$(".step li").eq(1).addClass("on");
+<<<<<<< HEAD
        var uv = $('input[name=tel]').val();
        $('#text1').text(uv);
 //       alert(uv);
 	});
 
+=======
+        var uv = $('input[name=tel]').val();
+        $('#text').text(uv);
+
+
+	});
+>>>>>>> 15adbe9e4530e28e44a17fd15222f9be6c6a501e
 	//第二页的确定按钮
 	$("#btn_part2").click(function(){			
 		if(!verifyCheck._click()) return;
@@ -255,8 +277,11 @@ $(function(){
         arr2[2] = $('input[name=tel]').val();
         arr2[3] = $('input[name=email]').val();//可以再次添加元素，定义的数组大小对此没有影响
         arr2[4] = $('input[name=code]').val();
+<<<<<<< HEAD
         arr2[4] = $('input[name=xingming]').val();
 
+=======
+>>>>>>> 15adbe9e4530e28e44a17fd15222f9be6c6a501e
         $.post("{{url('home/doregister')}}", {'_token': "{{csrf_token()}}", 'user': arr2}, function (data) {
 
             if (!verifyCheck._click()) return;

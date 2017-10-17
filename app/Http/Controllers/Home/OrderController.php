@@ -17,8 +17,6 @@ class OrderController extends Controller
      */
     public function index()
     {
-
-
         //判断是否登录
         if(empty(session('user'))){
             return view("home.login");

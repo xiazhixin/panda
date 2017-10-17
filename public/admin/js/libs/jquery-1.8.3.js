@@ -2867,7 +2867,6 @@ jQuery.event = {
 			return;
 		}
 
-
 		// Caller can index in an Event, Object, or just an event type string
 		event = typeof event === "object" ?
 			// jQuery.Event object
@@ -4649,9 +4648,7 @@ sortOrder = docElem.compareDocumentPosition ?
 	};
 
 // Always assume the presence of duplicates if sort doesn't
-
 // index them to our comparison function (as in Google Chrome).
-
 [0, 0].sort( sortOrder );
 baseHasDuplicate = !hasDuplicate;
 
@@ -8726,8 +8723,6 @@ function Animation( elem, properties, options ) {
 
 function propFilter( props, specialEasing ) {
 	var index, name, easing, value, hooks;
-
-
 	// camelCase, specialEasing and expand cssHook index
 	for ( index in props ) {
 		name = jQuery.camelCase( index );
