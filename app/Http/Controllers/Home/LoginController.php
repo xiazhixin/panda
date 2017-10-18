@@ -168,7 +168,7 @@ class LoginController extends Controller
         $user['uname']= HomeUser::where('uname',$input['uname'])->first()->toarray();
 
         if($user){
-
+           // Mail::send('使用的邮件模板'，'向模板中传递的变量'，'跟邮箱相关的一些信息如邮件的标题、发送人、收件人额、昵称等等')
             Mail::send('email.forget', ['user' => $user], function ($m) use ($user) {
                 //$m->from('hello@app.com', 'Your Application');
                 $m->to($user['uname']['email'], $user['uname']['uname'])->subject('找回密码!');

@@ -41,8 +41,8 @@
                         <div class="f-fl item-ifo">
                             <input type="text"  name="uname" maxlength="20" class="txt03 f-r3 required" tabindex="1" data-valid="isNonEmpty||between:3-20||isUname" data-error="用户名不能为空||用户名长度3-20位||只能输入中文、字母、数字、下划线，且以中文或字母开头" id="adminNo" />                            <span class="ie8 icon-close close hide"></span>
                             <label class="icon-sucessfill blank hide"></label>
-                            <label class="focus"><span id='text'></span></label>
-                            {{--<label class="focus valid"></label>--}}
+                            <label class="focus"><span id='text'>3-20位，中文、字母、数字、下划线的组合，以中文或字母开头</span></label>
+                            <label class="focus valid"></label>
                         </div>
                     </div>
                     <div class="item col-xs-12">
@@ -194,34 +194,31 @@
     $('input[name=uname]').focus(function(){
 
     })
-    $(':text').blur(function(){
+    $('input[name=uname]').blur(function(){
 
         //获取值
-        var uv = $(this).val();
-        var ud = $(this);
-        if(!uv){
-            $('#text').text(' 3-20位，中文、字母、数字、下划线的组合，以中文或字母开头').css('color','');
-        }else{
-            ud.css('border','solid 1px blue');
-        }
-//            alert(uv);
 
-        console.log(ud);
-        $.get('{{url('home/ajax')}}',{uv:uv},function(data){
+        var uvv = $(this).val();
+        var udd = $(this);
 
-            if(data == '1'){
+
+        $.get('{{url('home/ajax')}}',{uv:uvv},function(data){
+
+            if(data == 1){
+
                 //如果输入的用户名已经存在
-                $('#text').text(' *用户名已经存在请重新输入').css('color','red');
-                ud.css('border','solid 2px red');
+                $('#text').text(' *用户名已经存在请重新输入').css('color','red','return false');
+                udd.css('border','solid 1px red');
+                alert('用户名已经存在请重新输入');
 
             } else {
-                //如果用户名不存在
 
             }
 
         });
 
     })
+
     function re_captcha() {
         $url = "{{ URL('/code/captcha') }}";
         $url = $url + "/" + Math.random();
@@ -299,6 +296,7 @@
         }
 
     });
+
 
 </script>
 </body>

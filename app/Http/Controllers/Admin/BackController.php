@@ -79,15 +79,29 @@ class BackController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         //接收数据
         $res = $request->except('_method');
+//     dd($res);
         $res['back_id'] = $id;
-        /*Mail::send('admin.back.active', $res, function($message) use($res)
-        {
-            //$message->from('miliansll@163.com', 'Panda');
-            $message->to($res['back_email'], $res['back_name'])->subject('欢迎注册我们的网站，请激活您的账号！');
-        });*/
-        Mail::to('1029134683@qq.com')->send(new welcomeToPanda());
+        if($res){
+            //Mail::send('使用的邮件模板'，'向模板中传递的变量'，'跟邮箱相关的一些信息如邮件的标题、发送人、收件人额、昵称等等')
+            Mail::send('email.back', ['res' => $res], function ($m) use ($res) {
+                //$m->from('hello@app.com', 'Your Application');
+                $m->to($res['back_email'], $res['back_name'])->subject('反馈处理结果!');
+            });
+            echo"<script > alert('邮件已发送至用户的邮箱');
+                        location.href='http://panda.com/admin/back';
+            </script>" ;
+
+        }else{
+
+            echo"<script > alert('发送失败');
+                        location.href='http://panda.com';
+            </script>" ;
+        }
+
+
     }
 
     /**

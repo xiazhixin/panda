@@ -29,7 +29,7 @@
                                 <div class="form-group ">
                                     <label for="ccomment" class="control-label col-lg-2">回复内容:</label>
                                     <div class="col-lg-10">
-                                        <textarea class="form-control " id="ccomment" name="back_test" required></textarea>
+                                        <textarea class="form-control" id="ccomment" name="back_test" required >您提交的信息我们会尽快处理，谢谢您的支持与信任！</textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
