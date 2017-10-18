@@ -285,12 +285,14 @@
 				</div>
 					<div class="clear "></div>
 					<div class="clear "></div>
+
                     <div id="f1">
 					<!--甜点-->
 					<div class="am-container ">
 						<div class="shopTitle ">
 							{{--<h4>甜品</h4>--}}
 							<h3>每一件商品都有一个属于他自己的故事</h3>
+
                         </span>
 						</div>
 					</div>
@@ -312,6 +314,7 @@
 								<a href="home/detail/{{$v->gid}}"><img src="{{$v->gpic}}" /></a>
 							</div>
 						@endforeach
+
 					</div>
                  <div class="clear "></div>
                  </div>

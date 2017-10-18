@@ -104,10 +104,7 @@ class LoginController extends Controller
         }
 
 		//4 把用户登录信息存入session里面
-
         session(['auser'=>$user]);
-
-
        return redirect('admin/index');
 
     }

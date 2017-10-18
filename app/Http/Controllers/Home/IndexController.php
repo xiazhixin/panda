@@ -25,6 +25,6 @@ class IndexController extends Controller
         $cates = $cate -> tree();
 //        dd($cates);
         return view('home.index',compact('goods','tuis','lunbo','cates'));
-        //其他网站配置需要分配
+
     }
 }
