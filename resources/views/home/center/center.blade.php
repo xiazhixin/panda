@@ -185,16 +185,12 @@
 									<li><a href="{{url('/home/order')}}"><i><img src="{{asset('centerstyle/images/refund.png')}}"/></i><span>退换货</span></a></li>
 								</ul>
 							</div>
-							<!--九宫格-->
+
 
 							<!--物流 -->
 							<div class="m-logistics">
 
-
-
 							</div>
-
-							<!--收藏夹 -->
 
 
 						</div>
@@ -216,11 +212,8 @@
 							</div>
 						</div>
 						<!--新品 -->
-
-
 					</div>
 				</div>
-
 				<!--底部-->
 				<div class="footer">
 					<div class="footer-hd">

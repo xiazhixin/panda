@@ -159,3 +159,4 @@ Route::post('/admin/dologin/', 'Admin\LoginController@dologin');
         Route::post('/home/address/update/{id}','Home\AddressController@update');
         //保存新增收货地址
         Route::post('/home/address/store','Home\AddressController@store');
+

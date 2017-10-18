@@ -285,23 +285,12 @@
 				</div>
 					<div class="clear "></div>
 					<div class="clear "></div>
-
                     <div id="f1">
 					<!--甜点-->
 					<div class="am-container ">
 						<div class="shopTitle ">
 							{{--<h4>甜品</h4>--}}
 							<h3>每一件商品都有一个属于他自己的故事</h3>
-							{{--<div class="today-brands ">--}}
-								{{--<a href="# ">桂花糕</a>--}}
-								{{--<a href="# ">奶皮酥</a>--}}
-								{{--<a href="# ">栗子糕 </a>--}}
-								{{--<a href="# ">马卡龙</a>--}}
-								{{--<a href="# ">铜锣烧</a>--}}
-								{{--<a href="# ">豌豆黄</a>--}}
-							{{--</div>--}}
-							<span class="more ">
-                    <a href="#">更多魅力<i class="am-icon-angle-right" style="padding-left:10px ;" ></i></a>
                         </span>
 						</div>
 					</div>
@@ -323,7 +312,6 @@
 								<a href="home/detail/{{$v->gid}}"><img src="{{$v->gpic}}" /></a>
 							</div>
 						@endforeach
-
 					</div>
                  <div class="clear "></div>
                  </div>
