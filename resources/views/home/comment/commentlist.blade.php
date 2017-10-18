@@ -9,7 +9,7 @@
 
 		<link href="{{asset('home/AmazeUI-2.4.2/assets/css/admin.css')}}" rel="stylesheet" type="text/css">
 		<link href="{{asset('home/AmazeUI-2.4.2/assets/css/amazeui.css')}}" rel="stylesheet" type="text/css">
-		<link href="{{asset('hom/css/personal.csse')}}" rel="stylesheet" type="text/css">
+		<link href="{{asset('home/css/personal.css')}}" rel="stylesheet" type="text/css">
 		<link href="{{asset('home/css/appstyle.css')}}" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="{{asset('home/js/jquery-1.7.2.min.js')}}"></script>
 	</head>
@@ -53,7 +53,7 @@
 
 						<div class="nav white">
 							<div class="logoBig">
-								<li><img src="{{asset('home/images/logop.jpg') }}" /></li>
+								<li><img src="" /></li>
 							</div>
 
 							<div class="search-bar pr">
