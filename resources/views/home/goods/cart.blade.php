@@ -71,14 +71,15 @@
 
 			<div class="clear"></div>
 
-			<!--购物车 -->
+
 <section class="cartMain">
     <div class="cartMain_hd">
         <ul class="order_lists cartTop">
             <li class="list_chk">
                 <!--所有商品全选-->
                 <input type="checkbox" id="all" class="whole_check">
-                <label for="all"></label>
+
+                <label id="allbox"  onclick="allbox()" for="all"></label>
                 全选
             </li>
             <li class="list_con">商品信息</li>
@@ -89,14 +90,30 @@
             <li class="list_op">操作</li>
         </ul>
     </div>
+	<form action="{{url('home/pay')}}" method="post">	<!--购物车 -->
+	{{ csrf_field() }}
     <div class="cartBox">
         
         <div class="order_content">
 		@foreach ($carts as $k=>$v)
+			<script>
+				function allbox() {
+            		var lab = $('#allbox');
+            		var mark = lab.attr("class");
+            		if (mark == '') {
+            			//
+            			//
+            			$('#checkbox_'+id).attr("value",id);
+            		} else {
+            			return false;
+            		}
+            	}
+			</script>
             <ul class="order_lists">
                 <li class="list_chk">
-                    <input type="checkbox" id="checkbox_{{$v->id}}" onclick="che({{$v->id}})" class="son_check">
-                    <label for="checkbox_{{$v->id}}"></label>
+                    <input type="checkbox" id="checkbox_{{$v->id}}" name="id[]" value="" class="son_check">
+                    <label class="" onclick="js({{$v->id}})" for="checkbox_{{$v->id}}" >
+                    </label>
                 </li>
                 <li class="list_con">
                     <div class="list_img"><a href="javascript:;"><img src="{{asset($v->gpic)}}" alt=""></a></div>
@@ -111,52 +128,116 @@
                 </li>
                 <li class="list_amount">
                     <div class="amount_box">
-                        <a href="javascript:;" class="reduce reSty">-</a>
-                        <input type="text" value="1" class="sum">
-                        <a href="javascript:;" class="plus">+</a>
+                        <a href="javascript:;" onclick="jian({{$v->id}})" class="reduce reSty">-</a>
+                        <input type="text" value="{{$v->num}}" id="bcnt_{{$v->id}}" class="sum">
+                        <a href="javascript:;" onclick="jia({{$v->id}})" class="plus">+</a>
+                <script>
+                	function jia(id) {
+                		// alert(id);
+                		var bcnt = $('#bcnt_'+id).val();
+                		bcnt = parseInt(bcnt)+parseInt(1);
+                		// alert(bcnt);
+                		$.post("{{url('home/num')}}",{'id':id,'num':bcnt,'_token':"{{csrf_token()}}"},function(data){
+                				if (data == 1) {
+                					location.reload();
+                				}
+					        })
+                	}
+                </script>
+                        <script>
+                        	function jian(id) {
+                        		var bcnt = $('#bcnt_'+id).val();
+                        		bcnt = parseInt(bcnt)-parseInt(1)
+                        		$.post("{{url('home/numjian')}}",{'id':id,'num':bcnt,'_token':"{{csrf_token()}}"},function(data){
+                        			if (data == 1) {
+                					location.reload();
+                					}
+					        	})
+	                		// location.reload();
+	                		 // location=location
+                        	}
+                        </script>
                     </div>
                 </li>
                 <li class="list_sum">
-                    <p class="sum_price">￥{{$v->price}}</p>
+                    <p class="sum_price">￥{{$v->price*$v->num}}</p>
                 </li>
                 <li class="list_op">
-                    <p class="del"><a href="javascript:;" class="delBtn">移除商品</a></p>
+                    <p class="del"><a href="javascript:;" onclick="delid({{$v->id}})" class="">移除商品</a></p>
+             <script type="text/javascript" src="{{asset('layer/layer.js')}}"></script>
+
+                    <script>
+                    	function delid(id){
+				          //询问框
+				          layer.confirm('确认删除？', {
+				              btn: ['确认','取消']
+				          },function(){
+				              $.post("{{url('home/delcart/')}}/"+id,{'_token':"{{csrf_token()}}"},function(data){
+				              		// alert(data);
+				                  if(data.status == 0){
+				                      location.href = location.href;
+				                      layer.msg(data.msg, {icon: 6});
+				                  }else{
+				                      location.href = location.href;
+				                      layer.msg(data.msg, {icon: 5});
+				                  }
+				              })
+					        });
+					     }
+                    </script>
                 </li>
             </ul>
+            <input type="hidden" name="gid" value="eqwr" />
             @endforeach
         </div>
     </div>
 
+<style>
+	#button{
+		width:121px;
+		height:50px;
+		background:red;
+
+	}
+</style>
     
     <!--底部-->
     <div class="bar-wrapper">
         <div class="bar-right">
             <div class="piece">已选商品<strong class="piece_num">0</strong>件</div>
-            <div class="totalMoney">共计: <strong class="total_text">0.00</strong></div>
-            <div class="calBtn"><a href="javascript:;">结算</a></div>
+            <div class="totalMoney">共计: <strong id="bbb" class="total_text">0.00</strong></div>
+            <div class="calBtn"><a href="javascript:;">
+				<button id="button">结算</button>
+				<script>
+					$('#button').click(function(){
+						var aaa = $('#bbb').val();
+						// alert(aaa);
+					})
+				</script>
+            </a></div>
+            <script>
+            	// ------------------------------
+            	function js(id) {
+            		var lab = $('#checkbox_'+id).next('label');
+            		var mark = lab.attr("class");
+            		if (mark == '') {
+            			$('#checkbox_'+id).attr("value",id);
+            		} else {
+            			return false;
+            		}
+            	}
+            	
+            </script>
         </div>
     </div>
 </section>
 <section class="model_bg"></section>
 <section class="my_model">
-    <p class="title">删除宝贝<span class="closeModel">X</span></p>
-    <p>您确认要删除该宝贝吗？</p>
-    <div class="opBtn"><a href="javascript:;" class="dialog-sure">确定</a><a href="javascript:;" class="dialog-close">关闭</a></div>
+
 </section>
+</form>
 <script type="text/javascript" src="{{asset('cart/js/jquery.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('cart/js/carts.js')}}"></script>
-<script>
-	// 1.点击input‘，咋获取当前的id，单价，数量
-	function che(id) {
-		//判断是否有mark
-		var mark = $("label").attr("class");
-		if (mark == 'mark') {
-			console.log('1');
-		} else {
-			console.log('2');
-		}
-	}
-</script>
 </body>
 
 </html>

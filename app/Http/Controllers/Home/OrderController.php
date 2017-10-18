@@ -29,7 +29,7 @@ class OrderController extends Controller
             ->leftJoin('shop_goods','shop_detail.gid','=','shop_goods.gid')
             ->where('users.uid',$id)
             ->get();
-//        dd($orders);
+
 
         return view('home.order.order',compact('orders'));
     }

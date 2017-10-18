@@ -129,16 +129,19 @@ Route::post('/admin/dologin/', 'Admin\LoginController@dologin');
         Route::get('home/cart/{id}','Home\GoodsController@cart');
         //去购物车结算
         Route::get('home/docart','Home\GoodsController@docart');
+        //修改购物车商品数量
+        Route::post('home/num','Home\GoodsController@num');
+        Route::post('home/numjian','Home\GoodsController@numjian');
+        //结算
+        Route::post('home/pay','Home\GoodsController@pay');
         //删除商品
-        Route::get('home/delCartGood/{id}','Home\GoodsController@delCartGood');
+        Route::post('home/delcart/{id}','Home\GoodsController@delcart');
          //轮播图路由
         Route::resource('/admin/lunbo','Admin\LunboController');
-
         //轮播图片地址写入路由
         Route::post('/admin/but','Admin\LunboController@but');
         //商品评论
         Route::resource('/home/comment','Home\CommentController');
-
         //个人中心
         Route::get('/home/center','Home\CenterController@index');
         //个人信息

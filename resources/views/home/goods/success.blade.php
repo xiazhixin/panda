@@ -333,7 +333,7 @@
             </div>
         </div>
         <div id='pre-r'>
-            <a href="{{url('home/index')}}">继续购物</a>
+            <a href="{{url('/')}}">继续购物</a>
             <a href="{{url('home/docart')}}" >去购物车结算</a>
         </div>
     </div>

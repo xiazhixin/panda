@@ -25,6 +25,5 @@ class IndexController extends Controller
         $cates = $cate -> tree();
 //        dd($cates);
         return view('home.index',compact('goods','tuis','lunbo','cates'));
-
     }
 }

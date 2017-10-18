@@ -38,10 +38,6 @@
                     <tr>
                         <td><a href="#">{{$v->lid}}</a></td>
                         <td class="hidden-phone">{{$v->lname}}</td>
-<<<<<<< HEAD
-=======
-
->>>>>>> 2c3261d66ab48b5bfe0fc4d62bf4c4ade34f04b0
                         <td class="hidden-phone"><img src="{{$v->art_thumb}}" width="100px" alt=""></td>
                         <td>{{date("Y-m-d H:i:sa", $v->ltime)}}</td>
                         <td>

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
+
 class AddressController extends Controller
 {
 
@@ -101,5 +102,4 @@ class AddressController extends Controller
         }
         return view('home.address.edit',compact('addr'));
     }
-
 }

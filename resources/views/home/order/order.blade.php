@@ -275,8 +275,6 @@
 
 									<div class="order-main">
 										<div class="order-list">
-<<<<<<< HEAD
-<<<<<<< HEAD
 											{{--待付款--}}
 											@foreach($orders as $k=>$v)
 												@if($v->ostatus == '3')
@@ -356,6 +354,7 @@
 																			<a href="">确认收货</a></div>
 																	@elseif($v->ostatus == '2')
 																		<div class="am-btn am-btn-danger anniu">
+
 																			<a href="{{url('home/comment/')}}/{{$v->gid}}">待评论</a></div>
 																	@elseif($v->ostatus == '3')
 																		<div class="am-btn am-btn-danger anniu">
