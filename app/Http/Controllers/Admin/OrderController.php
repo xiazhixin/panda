@@ -70,9 +70,7 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-
         //查询出商品表,订单表,订单详情表,地址表中相关联的数据
-
         $orders = DB::table('shop_orders')
             ->leftJoin('shop_delivery','shop_orders.uid','=','shop_delivery.uid')
             ->leftJoin('shop_detail','shop_orders.oid','=','shop_detail.oid')
@@ -84,6 +82,7 @@ class OrderController extends Controller
             ->where('shop_orders.oid',$id)
             ->get();
 //        dd($orders);
+
 
 
         return view('admin.order.edit',compact('orders'));

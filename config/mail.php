@@ -18,6 +18,8 @@ return [
 
     'driver' => env('MAIL_DRIVER', 'smtp'),
 
+    //'mailgun' => env('MAIL_DRIVER', 'smtp'),
+
     /*
     |--------------------------------------------------------------------------
     | SMTP Host Address
@@ -56,9 +58,11 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'gxp1041@163.com'),
+        'name' => env('MAIL_FROM_NAME', 'PanDa store'),
     ],
+//    'from' => ['address' => 'gxp1041@163.com', 'name' => 'PanDa store'],
+
 
     /*
     |--------------------------------------------------------------------------

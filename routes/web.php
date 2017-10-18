@@ -103,16 +103,24 @@ Route::post('/admin/dologin/', 'Admin\LoginController@dologin');
         Route::get('/home/login/', 'Home\LoginController@login');
         //前台注册
         Route::get('/home/register1', 'Home\LoginController@register1');
+        //忘记密码路由
+        Route::get('/home/forget', 'Home\LoginController@forget');
+         //发送找回密码邮件
+         Route::post('doforget','Home\LoginController@doForget');
+        //重置密码页面路由
+        Route::get('reset','Home\LoginController@reset');
+        //重置密码逻辑路由
+        Route::post('doreset','Home\LoginController@doReset');
         //前台执行注册路由
         Route::post('/home/doregister/', 'Home\LoginController@doregister');
             //前台注册手机验证码路由
         Route::post('sendcode1', 'Home\LoginController@sendcode1');
-
+        //手机验证码，验证码是否正确
+        Route::post('sendcode2', 'Home\LoginController@sendcode2');
         //前台登录
         Route::post('/home/dologin', 'Home\LoginController@dologin');
         //前台验证码
         Route::get('/code/captcha/{tmp}', 'Home\LoginController@captcha');
-
         //ajax 注册验证用户是否存在路由
         Route::get('home/ajax', 'Home\LoginController@ajax');
         //前台退出

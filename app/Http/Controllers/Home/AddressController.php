@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 
+
 class AddressController extends Controller
 {
 
@@ -25,6 +26,7 @@ class AddressController extends Controller
     public function status($id)
     {
         //修改默认地址
+
         $res = Delivery::where('id',$id)->update(['status'=>1]);
         $uid = session('user')->uid;
         if(!empty($res)) {
@@ -102,4 +104,5 @@ class AddressController extends Controller
         }
         return view('home.address.edit',compact('addr'));
     }
+
 }

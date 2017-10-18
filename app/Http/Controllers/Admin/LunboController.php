@@ -77,7 +77,6 @@ class LunboController extends Controller
 
         ];
         $msg = [
-
             'lname.required' => '图片名必须输入',
             'lname.between' => '图片名必须在2-18位之间',
 

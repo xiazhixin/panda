@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<title>注册</title>
-<link href="/home/regis/css/bootstrap.min.css" rel="stylesheet">
-<link href="/home/regis/css/gloab.css" rel="stylesheet">
-<link href="/home/regis/css/index.css" rel="stylesheet">
-<script src="/home/regis/js/jquery-1.11.1.min.js"></script>
-<script src="/home/regis/js/register.js"></script>
-<script src="/home/layer/layer.js"></script>
-
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>注册</title>
+    <link href="/home/regis/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/home/regis/css/gloab.css" rel="stylesheet">
+    <link href="/home/regis/css/index.css" rel="stylesheet">
+    <script src="/home/regis/js/jquery-1.11.1.min.js"></script>
+    <script src="/home/regis/js/register.js"></script>
 </head>
 <body class="bgf4">
 <div class="login-box f-mt10 f-pb50">
-	<div class="main bgf">
-    	<div class="reg-box-pan display-inline">
-        	<div class="step">
+    <div class="main bgf">
+        <div class="reg-box-pan display-inline">
+            <div class="step">
                 <ul>
                     <li class="col-xs-4 on">
                         <span class="num"><em class="f-r5"></em><i>1</i></span>
@@ -36,8 +34,8 @@
                     </li>
                 </ul>
             </div>
-        	<div class="reg-box" id="verifyCheck" style="margin-top:20px;">
-            	<div class="part1">
+            <div class="reg-box" id="verifyCheck" style="margin-top:20px;">
+                <div class="part1">
                     <div class="item col-xs-12">
                         <span class="intelligent-label f-fl"><b class="ftx04">*</b>用户名：</span>
                         <div class="f-fl item-ifo">
@@ -86,19 +84,7 @@
                             <label class="focus valid"></label>
                         </div>
                     </div>
-                    <div class="item col-xs-12">
-                        <span class="intelligent-label f-fl"><b class="ftx04">*</b>邮箱：</span>
-                        <div class="f-fl item-ifo">
-                            <input type="email"  name="email" id="password" maxlength="20" class="txt03 f-r3 required" tabindex="3" style="ime-mode:disabled;" onpaste="return  false" autocomplete="off" data-valid="isNonEmpty||between:emal" data-error="邮箱不能为空||邮箱必须长度带@位" />
-                            <span class="ie8 icon-close close hide" style="right:55px"></span>
-                            <span class="showpwd" data-eye="emali"></span>
-                            <label class="icon-sucessfill blank hide"></label>
-                            <label class="focus">邮箱英文（区分大小写）、数字、</label>
-                            <label class="focus valid"></label>
-                            <span class="clearfix"></span>
 
-                        </div>
-                    </div>
                     <div class="item col-xs-12">
                         <span class="intelligent-label f-fl"><b class="ftx04">*</b>验证码：</span>
                         <div class="f-fl item-ifo" style="width:280px;">
@@ -122,7 +108,7 @@
                     <div class="item col-xs-12">
                         <span class="intelligent-label f-fl">&nbsp;</span>
                         <div class="f-fl item-ifo">
-                           <a href="javascript:;" class="btn btn-blue f-r3" id="btn_part1">下一步</a>
+                            <a href="javascript:;" class="btn btn-blue f-r3" id="btn_part1">下一步</a>
                         </div>
                     </div>
                 </div>
@@ -137,24 +123,25 @@
                     <div class="item col-xs-12">
                         <span class="intelligent-label f-fl"><b class="ftx04">*</b>验证码：</span>
                         <div class="f-fl item-ifo">
-                            <input type="text" maxlength="6" id="verifyNo" class="txt03 f-r3 f-fl required" tabindex="4" style="width:167px" data-valid="isNonEmpty||isInt" data-error="验证码不能为空||请输入6位数字验证码" />
+                            <input type="text" maxlength="6" name="phonecode" id="verifyNo" class="txt03 f-r3 f-fl required" tabindex="4" style="width:167px" data-valid="isNonEmpty||isInt" data-error="验证码不能为空||请输入6位数字验证码" />
                             <span class="btn btn-gray f-r3 f-ml5 f-size13" id="time_box" onclick="dome()" disabled style="width:97px;display:none;" >发送验证码</span>
                             <span class="btn btn-gray f-r3 f-ml5 f-size13" id="verifyYz" style="width:97px;" ><a
                                         href="javascript:;" onclick="dome()">发送验证码</a></span>
                             <span class="ie8 icon-close close hide" style="right:130px" onclick="dome()"></span>
                             <label class="icon-sucessfill blank hide"></label>
-                            <label class="focus"><span>请查收手机短信，并填写短信中的验证码（此验证码3分钟内有效）</span></label>
+                            <label class="focus"  ><span id="pccode">请查收手机短信，并填写短信中的验证码（此验证码3分钟内有效）</span></label>
                             <label class="focus valid"></label>
                         </div>
                     </div>
                     <div class="item col-xs-12">
                         <span class="intelligent-label f-fl">&nbsp;</span>
                         <div class="f-fl item-ifo">
-                           <a href="javascript:;" class="btn btn-blue f-r3" id="btn_part2">注册</a>
+                            <a href="javascript:;" class="btn btn-blue f-r3" id="btn_part2">注册</a>
                         </div>
                     </div>
                 </div>
                 <div class="part3" style="display:none">
+
                     <div class="item col-xs-12">
                         <span class="intelligent-label f-fl"><b class="ftx04">*</b>邮箱：</span>
                         <div class="f-fl item-ifo">
@@ -165,18 +152,19 @@
                             <label class="focus">邮箱英文（区分大小写）、数字、</label>
                             <label class="focus valid"></label>
                             <span class="clearfix"></span>
+
                         </div>
                     </div>
 
                     <div class="item col-xs-12">
                         <span class="intelligent-label f-fl">&nbsp;</span>
                         <div class="f-fl item-ifo">
-                           <a href="javascript:;" class="btn btn-blue f-r3" id="btn_part3">下一步</a>
+                            <a href="javascript:;" class="btn btn-blue f-r3" id="btn_part3">下一步</a>
                         </div>
                     </div>
                 </div>
                 <div class="part4 text-center" style="display:none">
-                	<h3>恭喜cz82465，您已注册成功，现在开始您的投资之旅吧！</h3>
+                    <h3>恭喜您已注册成功，现在开始您的购物之旅吧！</h3>
                     <p class="c-666 f-mt30 f-mb50">页面将在 <strong id="times" class="f-size18">10</strong> 秒钟后，跳转到 <a href="my.html" class="c-blue">用户中心</a></p>
                 </div>
             </div>
@@ -201,6 +189,7 @@
             console.log(data);
         });
     }
+
 
     $('input[name=uname]').focus(function(){
 
@@ -238,7 +227,6 @@
         $url = $url + "/" + Math.random();
         document.getElementById('127ddf0de5a04167a9e427d883690ff6').src = $url;
     }
-<<<<<<< HEAD
     $(function(){
         //第一页的确定按钮
         $("#btn_part1").click(function(){
@@ -253,9 +241,19 @@
 
         //第二页的确定按钮
         $("#btn_part2").click(function(){
-            if(!verifyCheck._click()) return;
-            $(".part2").hide();
-            $(".part3").show();
+           var pcode=$('input[name=phonecode]').val();
+            $.post("{{url('sendcode2')}}", {'_token': "{{csrf_token()}}", 'pcode': pcode}, function (data) {
+//                console.log(data);
+            if(data==0){
+                if(!verifyCheck._click()) return;
+                    $(".part2").hide();
+                    $(".part3").show();
+            }else{
+                alert('验证码，不正确请重新输入，重新获取请双击。');
+            }
+
+            });
+
         });
         //第三页的确定按钮
         $("#btn_part3").click(function() {
@@ -267,7 +265,7 @@
             arr2[2] = $('input[name=tel]').val();
             arr2[3] = $('input[name=email]').val();//可以再次添加元素，定义的数组大小对此没有影响
             arr2[4] = $('input[name=code]').val();
-            arr2[4] = $('input[name=xingming]').val();
+
 
             $.post("{{url('home/doregister')}}", {'_token': "{{csrf_token()}}", 'user': arr2}, function (data) {
 

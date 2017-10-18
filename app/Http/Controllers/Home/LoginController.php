@@ -7,6 +7,7 @@ use App\Http\Model\HomeUser;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
@@ -39,22 +40,36 @@ class LoginController extends Controller
 
     //初始化 $options必填
         $ucpass = new Ucpaas($options);
-//    dd($ucpass);
-    //开发者账号信息查询默认为json或xml
-//        echo $ucpass->getDevinfo('xml');
-//       $input=$ucpass->getDevinfo('xml');
-//        dd($input);
-        //短信验证码（模板短信）,默认以65个汉字（同65个英文）为一条（可容纳字数受您应用名称占用字符影响），超过长度短信平台将会自动分割为多条发送。分割后的多条短信将按照具体占用条数计费。
-    $appId = "36386decf2604aa89db2dc3507354118";
-    $to = $input['phone'];
-    $templateId = "178482";
-    $param="test,1256,3";
+
+        $a = range(0,9);
+        for($i=0;$i<6;$i++){
+
+            $b[] = array_rand($a);
+        }
+
+        $code=(join($b));
+        session(['pcode'=>$code]);
+        $appId = "36386decf2604aa89db2dc3507354118";
+          $to = $input['phone'];
+         $templateId = "178481";
+         $param="$code";
 
     return $ucpass->templateSMS($appId,$to,$templateId,$param);
 
     }
 
-    
+
+    public function sendcode2(Request $request)
+    {
+        $input=$request->except('_token');
+
+        if (session('pcode')==$input['pcode']){
+            return  0;
+        }else {
+
+            return 1;
+        }
+    }
 
     //注册提交来的信息
     public function doregister(Request $request)
@@ -133,7 +148,78 @@ class LoginController extends Controller
       return redirect('/');
         }
     }
-    
 
+
+    public function forget()
+    {
+        return view('home.forget');
+    }
+
+     public function doForget(Request $request)
+    {
+
+        //获取请求的参数userid   token
+        $input = $request->all();
+
+        //根据请求中的用户邮箱获取到要找回密码的用户
+        $user=[];
+        $user['_token']=$input['_token'];
+
+        $user['uname']= HomeUser::where('uname',$input['uname'])->first()->toarray();
+
+        if($user){
+
+            Mail::send('email.forget', ['user' => $user], function ($m) use ($user) {
+                //$m->from('hello@app.com', 'Your Application');
+                $m->to($user['uname']['email'], $user['uname']['uname'])->subject('找回密码!');
+            });
+            echo"<script > alert('邮件已发送至进的邮箱请注意查收');
+                        location.href='http://www.panda.com';
+            </script>" ;
+
+        }else{
+
+            echo"<script > alert('无效的邮箱激活链接，请联系客服');
+                        location.href='http://www.panda.com';
+            </script>" ;
+        }
+
+
+    }
+
+    //重置密码页面
+    public function Reset(Request $request)
+    {
+       $uid= $request['userid'];
+       return view('home.resetget',compact('uid'));
+    }
+
+    //重置密码逻辑
+    public function doReset(Request $request)
+    {
+
+        //request中包含UID,pass,repass
+//        首先根据uid获取到要修改密码的用户记录
+        $uid = $request['uid'];
+        $user = HomeUser::find($uid);
+        $pass = Hash::make($request['upassword']);
+//        执行update方法，将这个用户的密码修改为新密码
+        $re = $user->update(['upassword'=>$pass]);
+
+        if($re){
+
+
+            echo"<script > alert('密码修改成功');
+                        location.href='http://www.panda.com/home/login';
+            </script>" ;
+
+        }else{
+            echo"<script > alert('密码修改失败');
+                        location.href='http://www.panda.com';
+            </script>" ;
+            
+    }
+
+    }
 
 }

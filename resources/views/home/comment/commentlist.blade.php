@@ -55,7 +55,6 @@
 
 						<div class="nav white">
 							<div class="logoBig">
-
 								<li><img src="" /></li>
 
 							</div>

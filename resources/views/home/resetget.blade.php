@@ -11,17 +11,15 @@
 
 <!-- Required Stylesheets -->
 
+<link rel="stylesheet" type="text/css" href="{{asset('/admin/bootstrap/css/bootstrap.min.css')}}" media="screen">
+<link rel="stylesheet" type="text/css" href="{{asset('/admin/css/fonts/ptsans/stylesheet.css')}}" media="screen">
+<link rel="stylesheet" type="text/css" href="{{asset('/admin/css/fonts/icomoon/style.css')}}" media="screen">
 
-    <link rel="stylesheet" type="text/css" href="{{asset('/admin/bootstrap/css/bootstrap.min.css')}}" media="screen">
-    <link rel="stylesheet" type="text/css" href="{{asset('/admin/css/fonts/ptsans/stylesheet.css')}}" media="screen">
-    <link rel="stylesheet" type="text/css" href="{{asset('/admin/css/fonts/icomoon/style.css')}}" media="screen" >
+<link rel="stylesheet" type="text/css" href="{{asset('/admin/css/login.css')}}" media="screen">
 
-    <link rel="stylesheet" type="text/css" href="{{asset('/admin/css/login.css')}}" media="screen">
+<link rel="stylesheet" type="text/css" href="{{asset('/admin/css/mws-theme.css')}}" media="screen">
 
-    <link rel="stylesheet" type="text/css" href="{{asset('/admin/css/mws-theme.css')}}" media="screen">
-
-
-<title>MWS Admin - Login Page</title>
+<title>密码找回</title>
 
 </head>
 
@@ -31,7 +29,7 @@
 
         <div id="mws-login">
             <h1>
-                <marquee behavior="" direction="">Panda Login</marquee></h1>
+               密码重置</h1>
             <h4 style="color:red;">
                 @if (count($errors) > 0)
                     <div class="alert alert-danger">
@@ -49,35 +47,22 @@
             </h4>
             <div class="mws-login-lock"><i class="icon-lock"></i></div>
             <div id="mws-login-form">
-                <form class="mws-form" action="{{url('admin/dologin')}}" method="post">
+                <form class="mws-form" action="{{url('doreset')}}" method="post">
                     {{csrf_field()}}
+                    <input type="hidden" name="uid" value="{{$uid}}">
                     <div class="mws-form-row">
                         <div class="mws-form-item">
-                            <input type="text" name="aname" class="mws-login-username required" placeholder="请输入账号"value="{{old('aname')}}">
+                            <input type="password" name="upassword" class="mws-login-username required" placeholder="请输入新密码"value="">
                         </div>
                     </div>
                     <div class="mws-form-row">
                         <div class="mws-form-item">
-                            <input type="password" name="apassword" class="mws-login-password required" placeholder="请输入密码" value="{{old('apassword')}}">
+                            <input type="password" name="repassword" class="mws-login-username required" placeholder="请输再次输入密码"value="">
                         </div>
                     </div>
 
                     <div class="mws-form-row">
-                        <input type="text" name="code" class=" required" placeholder="请输入验证码" style="width:140px; padding-top:10px; ">
-                       
-						<img src="{{url('admin/yzm')}}" onclick="this.src='{{url('admin/yzm')}}?'+Math.random()" alt="">
-
-                    </div>
-                    <div id="mws-login-remember" class="mws-form-row mws-inset">
-                        <ul class="mws-form-list inline">
-                            <li>
-                                <input id="remember" type="checkbox" checked="checked">
-                                <label for="remember">记住账号</label>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="mws-form-row">
-                        <input type="submit" value="登录" class="btn btn-success mws-login-button">
+                        <input type="submit" value="确认提交" class="btn btn-success mws-login-button">
                     </div>
                 </form>
             </div>
@@ -85,11 +70,10 @@
     </div>
 
     <!-- JavaScript Plugins -->
-
     <script src="{{asset('/admin/js/libs/jquery-1.8.3.min.js')}}"></script>
     <script src="{{asset('/admin/js/libs/jquery.placeholder.min.js')}}"></script>
     <script src="{{asset('/admin/custom-plugins/fileinput.js')}}"></script>
-
+    
     <!-- jQuery-UI Dependent Scripts -->
     <script src="{{asset('/admin/jui/js/jquery-ui-effects.min.js"')}}></script>
 
@@ -99,12 +83,12 @@
     <!-- Login Script -->
     <script src="{{asset('/admin/js/core/login.js')}}"></script>
 
+
 </body>
 <script type="text/javascript">
-    function re_captcha() {
-        $url = "{{ URL('/code/captcha') }}";
-        $url = $url + "/" + Math.random();
-        document.getElementById('127ddf0de5a04167a9e427d883690ff6').src = $url;
+    function yzm() {
+      var pcode=$('input[name=phonecode]').val();
+            alert(pcode);
     }
 </script>
 </html>

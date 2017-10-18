@@ -15,7 +15,9 @@ class IndexController extends Controller
     public function index()
     {
         //商品
+
         $goods = Goods::all();
+
         //推荐商品(只有三个推荐位)
         $tuis = Tui::all();
         //轮播图显示
@@ -26,4 +28,5 @@ class IndexController extends Controller
 //        dd($cates);
         return view('home.index',compact('goods','tuis','lunbo','cates'));
     }
+
 }

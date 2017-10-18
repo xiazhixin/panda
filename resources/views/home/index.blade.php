@@ -28,6 +28,7 @@
 				<div class="menu-hd">
 					@if(session('user'))
 						<a href="#" target="_top" class="h" >你好,{{session('user')['uname']}}!</a>
+
 						<a href="{{url('home/outlog')}}" target="_top" >退出登录</a>
 					@else
 					<a href="{{url('home/login')}}" target="_top" class="h" >亲，请登录</a>
@@ -111,11 +112,11 @@
 
 									<div class="category">
 										<ul class="category-list" id="js_climit_li">
+
 											@foreach($cates as $v)
 												<li class="appliance js_toggle relative">
 												<div class="category-info">
 													<h3 class="category-name b-category-name"><i><img src="{{asset('home//images/cookies.png')}}"></i><a class="ml-22" title="">{{$v->cate_name}}</a></h3>
-
 													<em>&gt;</em></div>
 												<div class="menu-item menu-in top">
 													<div class="area-in">
@@ -221,7 +222,7 @@
 							<div class="member-logout">
 								@if(session('user'))
 									<a class="am-btn-warning btn" href="home/center" target="_top" class="h" >你好,{{session('user')['uname']}}!</a>
-									<a class="am-btn-warning btn" href="home/outlog" target="_top" >退出登录</a>
+									<a class="am-btn-warning btn" href="{{url('home/outlog')}}" target="_top" >退出登录</a>
 								@else
 									<a class="am-btn-warning btn" href="{{url('home/login')}}" target="_top" class="h" >登录</a>
 									<a class="am-btn-warning btn" href="{{url('home/register1')}}" target="_top">免费注册</a>
@@ -279,7 +280,7 @@
 										<h4>{{$v['keyword']}}</h4>
 									</div>
 									<div class="recommendationMain one">
-										<a href="introduction.html"><img src="{{asset($v['gpic'])}}"></img></a>
+										<a href="{{url('home/detail/')}}/{{$v->gid}}"><img src="{{asset($v['gpic'])}}"></img></a>
 									</div>
 								</div>
 							@endforeach
@@ -310,7 +311,7 @@
 									</div>
 									{{--<i class="am-icon-shopping-basket am-icon-md  seprate"></i>--}}
 								</div>
-								<a href="home/detail/{{$v->gid}}"><img src="{{$v->gpic}}" /></a>
+								<a href="{{url('home/detail/')/$v->gid}}"><img src="{{$v->gpic}}" /></a>
 							</div>
 						@endforeach
 

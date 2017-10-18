@@ -139,6 +139,7 @@
 											<label for="user-name" class="am-form-label">收货人：</label>
 											<div class="am-form-content">
 												<input type="text" name="rec" value="{{$v->rec}}" id="user-name" placeholder="收货人">
+
 											</div>
 										</div>
 
@@ -266,5 +267,4 @@
 
 
 </html>
-
 

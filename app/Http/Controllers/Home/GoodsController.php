@@ -28,6 +28,7 @@ class GoodsController extends Controller
     public function detail($id)
     {
         $detail = Goods::find($id);
+
         //获取评论
         $com = DB::select('select * from shop_comment where gid ='.$id);
         return view('home.goods.detail',compact('detail','com','id'));
@@ -73,7 +74,6 @@ class GoodsController extends Controller
         return view('home.goods.success',compact('good','num'));
     }
 
-
     //去购物车结算
     public function docart()
     {
@@ -95,6 +95,7 @@ class GoodsController extends Controller
         $check = $cart->delete();
         //根据返回的结果处理成功和失败
         if($check){
+
             $data=[
                 'status'=>0,
                 'msg'=>'删除成功'
@@ -107,6 +108,7 @@ class GoodsController extends Controller
         }
         return  $data;
     }
+
 
     //修改num
     public function num(Request $request)

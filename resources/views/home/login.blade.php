@@ -70,7 +70,9 @@
             
             <div class="login-links">
                 <label for="remember-me"><input id="remember-me" type="checkbox">记住密码</label>
-								<a href="#" class="am-fr">忘记密码</a>
+
+								<a href="{{url('home/forget')}}" class="am-fr">忘记密码</a>
+
 								<a href="{{url('home/register1')}}" class="zcnext am-fr am-btn-default">注册</a>
 								<br />
             </div>
